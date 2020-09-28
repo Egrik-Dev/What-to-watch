@@ -1,7 +1,7 @@
 # Личный проект «Что посмотреть» [![Build status][travis-image]][travis-url]
 
 * Студент: [Егор Сорочинский](https://up.htmlacademy.ru/react/5/user/892619).
-* Наставник: `Неизвестно`.
+* Наставник: [Максим Чеченёв](https://github.com/chechenev).
 
 ---
 
