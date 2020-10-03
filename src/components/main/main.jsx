@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Main = (props) => {
+const MainScreen = (props) => {
   const {titleMovie, genreMovie, releaseMovie} = props;
 
   return (
@@ -308,10 +308,10 @@ const Main = (props) => {
   );
 };
 
-Main.propTypes = {
+MainScreen.propTypes = {
   titleMovie: PropTypes.string.isRequired,
   genreMovie: PropTypes.string.isRequired,
   releaseMovie: PropTypes.number.isRequired
 };
 
-export default Main;
+export default MainScreen;
