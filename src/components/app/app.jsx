@@ -5,8 +5,8 @@ import MainScreen from '../main/main';
 import LoginScreen from '../login/login';
 import MyListScreen from '../my-list/my-list';
 import MovieScreen from '../movies/movies';
-// import AddReviewScreen from '../add-review/add-review';
-// import PlayerScreen from '../player/player';
+import AddReviewScreen from '../add-review/add-review';
+import PlayerScreen from '../player/player';
 
 const App = (props) => {
   const {titleMovie, genreMovie, releaseMovie} = props;
@@ -30,12 +30,12 @@ const App = (props) => {
         <Route exact path="/movies/:id">
           <MovieScreen />
         </Route>
-        {/* <Route exact path="/films/:id/review">
+        <Route exact path="/movies/:id/review">
           <AddReviewScreen />
         </Route>
         <Route exact path="/player/:id">
           <PlayerScreen />
-        </Route> */}
+        </Route>
       </Switch>
     </BrowserRouter>
   );
