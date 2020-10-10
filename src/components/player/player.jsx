@@ -1,9 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import {filmProps} from '../../props/props';
 
-const PlayerScreen = () => {
+const PlayerScreen = (props) => {
+  const {film} = props;
   return (
     <div className="player">
-      <video src="#" className="player__video" poster="/img/player-poster.jpg"></video>
+      <video src={film.video} className="player__video" poster="/img/player-poster.jpg"></video>
 
       <button type="button" className="player__exit">Exit</button>
 
@@ -35,6 +38,10 @@ const PlayerScreen = () => {
       </div>
     </div>
   );
+};
+
+PlayerScreen.propTypes = {
+  film: PropTypes.shape(filmProps).isRequired
 };
 
 export default PlayerScreen;
