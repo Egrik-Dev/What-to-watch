@@ -102,7 +102,7 @@ const films = [
     img: `/img/aviator.jpg`,
     bgSrc: `/img/bg-aviator.jpg`,
     poster: `/img/aviator-poster.jpg`,
-    video: `https://region.dfs.ivi.ru/jW1IsIcU4ZPHta9JHIt9lWaNMhRclwB45oPACGoNFTX0kg5VSNds16141/mp4-hi/60nfY3lbl1Pm7S_JSN-arQ,1602713626/storage38/contents/7/9/46c199681892c8c2a4cd80d4c66a7e.mp4?rnd=0.1442839790286201`,
+    video: `https://imdb-video.media-imdb.com/vi3947888665/1434659607842-pgv4ql-1564591874324.mp4?Expires=1602787668&Signature=FflpkIvY7Bv7E5qIUk2DAxZhOJY38MiYAYRpMyZeySo2rE7MSk-9rz8-oOsQnAz1asvuKGoPkMg0-mkUofDOgJyKn6KLG9tVrn4exn1D6b~y6L46FTAey2mv16ZxXnqE3BfXfRa9Q6JBXJkQ4wl5bl3yvTTFsnfVRUDdzB1Oig3IbdNjhAP6Y8nQq3J4vmm6VQ90-0jlGVNnTRckn9qjVdAlEDCQJDU-f2YdGi3a5coh2TWRwD94Ci8v2t~~fvH1NEl0H0xzaSRbKCXoaEKyCzBKpw9gTjS-xEoFKWWfD9YqfD4LAiDc9rrT-nI0nQ6q6IYZ~74UHwbIDnCRbZeMgQ__&Key-Pair-Id=APKAIFLZBVQZ24NQH3KA`,
     reviews: reviewsMocks
   }, {
     title: `Shutter Island`,
