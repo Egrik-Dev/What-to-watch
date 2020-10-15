@@ -39,10 +39,10 @@ const films = [
     director: `Wes Andreson`,
     actors: [`Bill Murray`, `Edward Norton`, `Jude Law`, `Willem Dafoe`, `Saoirse Ronan`, `Tony Revoloru`, `Tilda Swinton`, `Tom Wilkinson`, `Owen Wilkinson`, `Adrien Brody`, `Ralph Fiennes`, `Jeff Goldblum`],
     runTime: `99 minutes`,
-    img: `/img/the-grand-budapest-hotel-poster.jpg`,
+    img: `/img/macbeth.jpg`,
     bgSrc: `/img/bg-the-grand-budapest-hotel.jpg`,
     poster: `/img/the-grand-budapest-hotel-poster.jpg`,
-    video: `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`,
+    video: `https://imdb-video.media-imdb.com/vi1157933593/MV5BMjM3MTY2MTYwOV5BMTFeQW1wNF5BbWU4MDI5MjQzMzEx.mp4?Expires=1602765196&Signature=XY0mx74XcbZ7XumxIU1x5GJitrrXrKREVuwVgW4jW0ra2eglWZTvhYYtXSaSTzobx5YfL7q0Vd77USNkLfLM1SZATPk5NHDnS6UIUFLXXOJWLyY0z3Q3omTgOaxihKCvEiOfTTOjQVoTMp16rZGtRqff5Iory-E6QaAJjFf3rysyKV~HyKJsVpbARgwFXrIlre04bUcJCuQ74BZzSCHG1FVqVBgfyKiM6eq2OxNXrXuTPb0SNj3ZVjHhe5onptr3xefoMWLB3mQOuEa2E8xvuJQf2uM6XNP-9nfDcERB5buapins5kukwLjBxdu0ADYUnEv0IDiWeoMf0dPoxGhqzg__&Key-Pair-Id=APKAIFLZBVQZ24NQH3KA`,
     reviews: reviewsMocks
   }, {
     title: `Fantastic Beasts: The Crimes of Grindelwald`,
@@ -57,7 +57,7 @@ const films = [
     img: `/img/fantastic-beasts-the-crimes-of-grindelwald.jpg`,
     bgSrc: `/img/bg-Fantastic-Beasts-The-Crimes-of-Grindelwald-movie-cast.jpg`,
     poster: `/img/fantastic-beasts-poster.jpg`,
-    video: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
+    video: `https://region.dfs.ivi.ru/jW1HgoGZ2bS5AhIdZUnMmSDwQjmCV8ngwY9eQ5gyhr6hMDcVM6S763720/mp4-hi/sIoAjlCx7YU64yyOqq4BUg,1602713831/storage28/contents/5/0/d05a40ec0e8eba57b41669192fb18c.mp4?rnd=0.6164686906526797`,
     reviews: reviewsMocks
   }, {
     title: `Bohemian Rhapsody`,
@@ -72,7 +72,7 @@ const films = [
     img: `/img/bohemian-rhapsody.jpg`,
     bgSrc: `/img/bg-bohemian-rhapsody.jpg`,
     poster: `/img/Bohemian_Rhapsody_poster.jpg`,
-    video: `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`,
+    video: `https://imdb-video.media-imdb.com/vi1451538969/1434659607842-pgv4ql-1540474852592.mp4?Expires=1602764604&Signature=GHoB64BRcKDuC2wM05Llvmo~WJrgshpjvh0GcdT4CF36xQJtiRJJrfNXMczow8Cz~T3bDj7eNOLh010lAbdOitJSzBQv1DEkKH-bzXLbWp4bLRqCY8VC~5e8-Uq4qkXjAE6K8OFyYlc~dAeRRM1Xf~9392MQup1wahsEExVC774fOiTNNY64RmASYEnRNd19Ed9dBqHI-ub6vIz0q-Ffr90-q94vKh8fF83acgLkzB67prv29vCki7D3P7qdvxTSPX98TdfVyUX0DaTkH6VFiQHkBc-ng9Xne0nA9mhoUHssYe3KOr6uEBDtsiOdnEp62AEBVS224K4GDgmg-12PrQ__&Key-Pair-Id=APKAIFLZBVQZ24NQH3KA`,
     reviews: reviewsMocks
   }, {
     title: `Macbeth`,
@@ -87,7 +87,7 @@ const films = [
     img: `/img/macbeth.jpg`,
     bgSrc: `/img/bg-macbeth.jpg`,
     poster: `/img/macbeth-poster.jpg`,
-    video: `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`,
+    video: `https://imdb-video.media-imdb.com/vi3526864921/1401497881123-xszl4z-1433432600712.mp4?Expires=1602764706&Signature=cDUllIipcQHrW8Q8TQU45VUA9KBc~GaI5zch09FqpsIzW5U~-5NzusYMkgSzquxHMqz29~1dJ08agVOxR-CuYi7rRDFb0XCDijktXCkFCMfD0Pp-TR3jTuWSj3W47lrBnP9opg~NjEDzdIDaLzb3ZoeamRNQhDhpkDGClSBlnpFfkkk9XkgzJxkdAfuHvKGrDsH3ykz5K4i4abdFgVZj34tQrBgnpTok0h9ePnFuqTj9nPwiKJB9MFTwrnmBqQZRszJkkd7KJiW029yBetoU3VcIB~BdGRYZpaGR5tvNWLLl5CZND~9P2l5pi9qzERf6ac5hsidPu3oM6dQMxDDdqg__&Key-Pair-Id=APKAIFLZBVQZ24NQH3KA`,
     reviews: reviewsMocks
   }, {
     title: `The Aviator`,
@@ -102,7 +102,7 @@ const films = [
     img: `/img/aviator.jpg`,
     bgSrc: `/img/bg-aviator.jpg`,
     poster: `/img/aviator-poster.jpg`,
-    video: `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`,
+    video: `https://imdb-video.media-imdb.com/vi3947888665/1434659607842-pgv4ql-1564591874324.mp4?Expires=1602787668&Signature=FflpkIvY7Bv7E5qIUk2DAxZhOJY38MiYAYRpMyZeySo2rE7MSk-9rz8-oOsQnAz1asvuKGoPkMg0-mkUofDOgJyKn6KLG9tVrn4exn1D6b~y6L46FTAey2mv16ZxXnqE3BfXfRa9Q6JBXJkQ4wl5bl3yvTTFsnfVRUDdzB1Oig3IbdNjhAP6Y8nQq3J4vmm6VQ90-0jlGVNnTRckn9qjVdAlEDCQJDU-f2YdGi3a5coh2TWRwD94Ci8v2t~~fvH1NEl0H0xzaSRbKCXoaEKyCzBKpw9gTjS-xEoFKWWfD9YqfD4LAiDc9rrT-nI0nQ6q6IYZ~74UHwbIDnCRbZeMgQ__&Key-Pair-Id=APKAIFLZBVQZ24NQH3KA`,
     reviews: reviewsMocks
   }, {
     title: `Shutter Island`,
@@ -117,7 +117,7 @@ const films = [
     img: `/img/shutter-island.jpg`,
     bgSrc: `/img/bg-shutter-island.jpg`,
     poster: `/img/shutter-island-poster.jpg`,
-    video: `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`,
+    video: `https://imdb-video.media-imdb.com/vi4064281/MV5BODNkZjg2YTItNzdkYy00N2M5LWI1MjQtZmMyMTVkY2RjODU4XkExMV5BbXA0XkFpbWRiLWV0cy10cmFuc2NvZGU@.mp4?Expires=1602765012&Signature=JThFwP0ZW4IWoO8741jDhajFt219f74lpikvWRDnpH5NoXkNdwdGApmf-Zabe6HfQak60XS1YlDrowLraHfcp3Bi2aCDxCi7xaoih2OEQ2ZI8IkPCU7vQrLS-hEglifWXKichiiWkebL3CjePNBi4DwudW~4e8VDcx1wNuesPDJjba7hvuqNVllLGhXqVId2QVBtmfZbabxm1mURM0ibLGRgaXV76skgGieqW57cwY2tGzKBPhaGOFzGHpxWA3jKrqjQFhMUyTD7~7eVOz0-85dFdHGaa~7mvNmfCy7platzGVrrLIiHP7l0xeG~rIWJfriX24eP1tR-9TpvSNx44g__&Key-Pair-Id=APKAIFLZBVQZ24NQH3KA`,
     reviews: reviewsMocks
   }, {
     title: `Pulp Fiction`,
@@ -132,7 +132,7 @@ const films = [
     img: `/img/pulp-fiction.jpg`,
     bgSrc: `/img/bg-pulp-fiction.jpg`,
     poster: `/img/pulp-fiction-poster.jpg`,
-    video: `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`,
+    video: `https://imdb-video.media-imdb.com/vi2620371481/1434659607842-pgv4ql-1450205469045.mp4?Expires=1602765078&Signature=tQcetjBxO0WpHtGEC-lFS0lYxBsKUrS6Ed3ISGoJ4epMc2G8mMYw578iAw~zGz31cS3sMO55KDqAKoWjCpjm8C5fwKow7AOgFkJqdOIrBMKjCFUxVawCDayO9waqfYaKK2D6nWyL5BoAGzQB5xrUzm2-0Dm~ishEF0e9LQjvrbLRbGS8kvzEBq5iAFejTMn2Rxrcz8Z8j43AE-XBuXtDsn8O~NuNBJ8g4GBmUoSN2rjddfcVKsqa6r3mWmyUGdgCqFnvPr-eV6v~D-wOOOiIbMZZY48xcvxynLDyag5WeL5Pb00K8FJn28HL~P~IToXQLfVlFWRQHJI4-QSyoym7sw__&Key-Pair-Id=APKAIFLZBVQZ24NQH3KA`,
     reviews: reviewsMocks
   }, {
     title: `No Country for Old Men`,
@@ -147,7 +147,7 @@ const films = [
     img: `/img/no-country-for-old-men.jpg`,
     bgSrc: `/img/bg-no-country-for-old-men.jpg`,
     poster: `/img/no-country-for-old-men.jpg-poster`,
-    video: `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`,
+    video: `https://imdb-video.media-imdb.com/vi145883417/MV5BZjkyMzE1YzItOWE1ZS00MjE3LWE4MWItNjAwOTAyNDgxODI1XkExMV5BbXA0XkFpbWRiLWV0cy10cmFuc2NvZGU@.mp4?Expires=1602765129&Signature=LzZLux-3y4fnswfBeIClKTQ0PmYyaSunjC9YLhIgaE1ofaxdIq4AOeB7LDcujqhauCiQcjNDdZEOMu4mGRJENPtJCZtoC7v53PwIzjcV1kmZpTqSeZLEmIyRW1j8GeI59IUM4SpUnLROnAgoIRs2NBW7OU-HMqgaVDCImNPdCqbESi3YanfGkUBeDafz~uSwPQzTTM6lhr~0U8d9cO0qSOxbdksNtYB2u5nPvofDqQs4y2fOSGRcpW77V0bo9Vj9~fyCpxuQoKL56UKcEqJOjIApI6GP-aRhDg30g9pW-kqNPuOAPWx7vrBpexZ~MUfILQrOPaNFz3yHCqlBT47zVg__&Key-Pair-Id=APKAIFLZBVQZ24NQH3KA`,
     reviews: reviewsMocks
   }
 ];

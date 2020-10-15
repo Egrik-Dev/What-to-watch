@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
 import {filmProps} from '../../props/props';
+import VideoPlayer from '../video-player/video-player';
 
 const MovieCard = (props) => {
   const {film, onHover} = props;
@@ -14,9 +15,9 @@ const MovieCard = (props) => {
       }}
     >
       <Link to="/movies/1">
-        <div className="small-movie-card__image">
-          <img src={film.img} alt="Fantastic Beasts: The Crimes of Grindelwald" width="280" height="175" />
-        </div>
+        <VideoPlayer
+          film={film}
+        />
       </Link>
       <h3 className="small-movie-card__title">
         <a className="small-movie-card__link" href="movie-page.html">{film.title}</a>
