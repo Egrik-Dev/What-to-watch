@@ -30,7 +30,7 @@ const reviewsMocks = [
 const films = [
   {
     title: `The Grand Budapest Hotel`,
-    genre: [`Drama`],
+    genre: [`Dramas`],
     releaseDate: 2014,
     rating: `8,9`,
     quantityRatings: 240,
@@ -42,7 +42,7 @@ const films = [
     img: `/img/macbeth.jpg`,
     bgSrc: `/img/bg-the-grand-budapest-hotel.jpg`,
     poster: `/img/the-grand-budapest-hotel-poster.jpg`,
-    video: `https://imdb-video.media-imdb.com/vi1157933593/MV5BMjM3MTY2MTYwOV5BMTFeQW1wNF5BbWU4MDI5MjQzMzEx.mp4?Expires=1602765196&Signature=XY0mx74XcbZ7XumxIU1x5GJitrrXrKREVuwVgW4jW0ra2eglWZTvhYYtXSaSTzobx5YfL7q0Vd77USNkLfLM1SZATPk5NHDnS6UIUFLXXOJWLyY0z3Q3omTgOaxihKCvEiOfTTOjQVoTMp16rZGtRqff5Iory-E6QaAJjFf3rysyKV~HyKJsVpbARgwFXrIlre04bUcJCuQ74BZzSCHG1FVqVBgfyKiM6eq2OxNXrXuTPb0SNj3ZVjHhe5onptr3xefoMWLB3mQOuEa2E8xvuJQf2uM6XNP-9nfDcERB5buapins5kukwLjBxdu0ADYUnEv0IDiWeoMf0dPoxGhqzg__&Key-Pair-Id=APKAIFLZBVQZ24NQH3KA`,
+    video: `https://imdb-video.media-imdb.com/vi1157933593/MV5BMjM3MTY2MTYwOV5BMTFeQW1wNF5BbWU4MDI5MjQzMzEx.mp4?Expires=1603161512&Signature=PLvMfdx6bEpXZeGIZMXyb2K5VFswCGINV6EI4FG5NLp9gzkN4D-rmcnm6kHuk7PcrZpVlzQ2gQ3oTwlz~KP5L5IEcCigzA03AoNceKe-9XhhcM-giRVHaUrjxPWVH4tD2z2CvDUsktqVOIFjzY~pFzpfYjJM0Y9WQrseda3XjOhby~0V~yRnv9LmC-sKfP1S7oBghsNDMTG3HqQx4zZ~IAMYAgQriYULIkGXkGbdlPHFTcZDyxFeh2HLpRYDaOBbDcrE~KQDublC08ey1liXZGruM7Lx52R~9nTrRzSEH6zqtHgB~ajYJUdene2TfQSHF9JaCdFKjJu6iqkB5UTfwQ__&Key-Pair-Id=APKAIFLZBVQZ24NQH3KA`,
     reviews: reviewsMocks
   }, {
     title: `Fantastic Beasts: The Crimes of Grindelwald`,
@@ -57,26 +57,26 @@ const films = [
     img: `/img/fantastic-beasts-the-crimes-of-grindelwald.jpg`,
     bgSrc: `/img/bg-Fantastic-Beasts-The-Crimes-of-Grindelwald-movie-cast.jpg`,
     poster: `/img/fantastic-beasts-poster.jpg`,
-    video: `https://region.dfs.ivi.ru/jW1HgoGZ2bS5AhIdZUnMmSDwQjmCV8ngwY9eQ5gyhr6hMDcVM6S763720/mp4-hi/sIoAjlCx7YU64yyOqq4BUg,1602713831/storage28/contents/5/0/d05a40ec0e8eba57b41669192fb18c.mp4?rnd=0.6164686906526797`,
+    video: `https://imdb-video.media-imdb.com/vi965130777/1434659607842-pgv4ql-1540579487666.mp4?Expires=1603161666&Signature=q3AQYCPCLxQHvldfci8uAJUXSZ7sgBH~qRoccG35iAosAD9u6vbSKlbqDAdoGxRLo87HBFFAu-8-5nULF4~gNv2c8hhRg0apIVZMhQkkxrxcfqNYjTllaZ9~2fxl~1StVlFGyTRFvurPVBXGjnthNBoEsrOW91IiYLBYFJtZupJ6rDV-yoYN6xVmdWoVzjScQns3lz0burdKZivSgo7baDyyvp8g5YZ20-6TZncHyL6TAQdIAqiJuN41KwASybiM2D0EmU8Ppom3CP5YUikZqMRVxdf902O2BmrAIiLlUBVJZ7f7AF2-6KWgpcLY~D3pFJyykgrMBTPVxrkQiLFm1g__&Key-Pair-Id=APKAIFLZBVQZ24NQH3KA`,
     reviews: reviewsMocks
   }, {
     title: `Bohemian Rhapsody`,
-    genre: [`Biography`, `Drama`, `Music`],
+    genre: [`Biography`, `Dramas`, `Music`],
     releaseDate: 2018,
     rating: `8,0`,
     quantityRatings: 369,
-    description: `is a 2018 biographical drama film about Freddie Mercury, the lead singer of the British rock band Queen. It was directed by Bryan Singer[a] from a screenplay by Anthony McCarten, and produced by Graham King and Queen manager Jim Beach. It stars Rami Malek as Mercury, with Lucy Boynton, Gwilym Lee, Ben Hardy, Joe Mazzello, Aidan Gillen, Tom Hollander, Allen Leech, and Mike Myers in supporting roles. Queen members Brian May and Roger Taylor served as consultants. A British-American venture, the film was produced by 20th Century Fox, Regency Enterprises, GK Films, and Queen Films, with Fox serving as distributor. The film follows the singer's life from the formation of the band up to their 1985 Live Aid performance at the original Wembley Stadium.`,
+    description: `is a 2018 biographical Dramas film about Freddie Mercury, the lead singer of the British rock band Queen. It was directed by Bryan Singer[a] from a screenplay by Anthony McCarten, and produced by Graham King and Queen manager Jim Beach. It stars Rami Malek as Mercury, with Lucy Boynton, Gwilym Lee, Ben Hardy, Joe Mazzello, Aidan Gillen, Tom Hollander, Allen Leech, and Mike Myers in supporting roles. Queen members Brian May and Roger Taylor served as consultants. A British-American venture, the film was produced by 20th Century Fox, Regency Enterprises, GK Films, and Queen Films, with Fox serving as distributor. The film follows the singer's life from the formation of the band up to their 1985 Live Aid performance at the original Wembley Stadium.`,
     director: `Bryan Singer`,
     actors: [`Rami Malek`, `Lucy Boynton`, `Gwilym Lee`, `Ben Hardy`, `Joe Mazzello`, `Aidan Gillen`, `Allen Leech`, `Tom Hollander`, `Mike Myers`],
     runTime: `134 minutes`,
     img: `/img/bohemian-rhapsody.jpg`,
     bgSrc: `/img/bg-bohemian-rhapsody.jpg`,
     poster: `/img/Bohemian_Rhapsody_poster.jpg`,
-    video: `https://imdb-video.media-imdb.com/vi1451538969/1434659607842-pgv4ql-1540474852592.mp4?Expires=1602764604&Signature=GHoB64BRcKDuC2wM05Llvmo~WJrgshpjvh0GcdT4CF36xQJtiRJJrfNXMczow8Cz~T3bDj7eNOLh010lAbdOitJSzBQv1DEkKH-bzXLbWp4bLRqCY8VC~5e8-Uq4qkXjAE6K8OFyYlc~dAeRRM1Xf~9392MQup1wahsEExVC774fOiTNNY64RmASYEnRNd19Ed9dBqHI-ub6vIz0q-Ffr90-q94vKh8fF83acgLkzB67prv29vCki7D3P7qdvxTSPX98TdfVyUX0DaTkH6VFiQHkBc-ng9Xne0nA9mhoUHssYe3KOr6uEBDtsiOdnEp62AEBVS224K4GDgmg-12PrQ__&Key-Pair-Id=APKAIFLZBVQZ24NQH3KA`,
+    video: `https://imdb-video.media-imdb.com/vi1451538969/1434659607842-pgv4ql-1540474852592.mp4?Expires=1603161752&Signature=Jdi4SlLYijbc8X4fMxtb9jzY7ch06dbUvgWpAZ3TO4HrnXnojmX5yBxzHpZinFzk7P5uL0iLewJRR3ZZpvZTYaLHZJLHM1BLqhXlWfcKMGf-WUvB1i3~LKu0o2phIcj993PNDaBmfAlZ-HNl6Z5Xmeoedhjvo8fF5XKN8wnei3Ra2NxRSJCuUn00VZEw2hfWrDJF8gj4rHd4GdLY1EMXAjXxfaasaiGKhiZTKSplSTRR~sFWUmY62pw0OZ9EHIYo3-qszOtenekY1UgnF3XG5HVuPbwimIosq72svOdEIhFbHEiIoYCKl5HWgRtcg3lgPF7OIL3sLkHdABb9jK4N-A__&Key-Pair-Id=APKAIFLZBVQZ24NQH3KA`,
     reviews: reviewsMocks
   }, {
     title: `Macbeth`,
-    genre: [`Drama`, `History`, `War`],
+    genre: [`Dramas`, `History`, `War`],
     releaseDate: 2015,
     rating: `6,6`,
     quantityRatings: 107,
@@ -87,11 +87,11 @@ const films = [
     img: `/img/macbeth.jpg`,
     bgSrc: `/img/bg-macbeth.jpg`,
     poster: `/img/macbeth-poster.jpg`,
-    video: `https://imdb-video.media-imdb.com/vi3526864921/1401497881123-xszl4z-1433432600712.mp4?Expires=1602764706&Signature=cDUllIipcQHrW8Q8TQU45VUA9KBc~GaI5zch09FqpsIzW5U~-5NzusYMkgSzquxHMqz29~1dJ08agVOxR-CuYi7rRDFb0XCDijktXCkFCMfD0Pp-TR3jTuWSj3W47lrBnP9opg~NjEDzdIDaLzb3ZoeamRNQhDhpkDGClSBlnpFfkkk9XkgzJxkdAfuHvKGrDsH3ykz5K4i4abdFgVZj34tQrBgnpTok0h9ePnFuqTj9nPwiKJB9MFTwrnmBqQZRszJkkd7KJiW029yBetoU3VcIB~BdGRYZpaGR5tvNWLLl5CZND~9P2l5pi9qzERf6ac5hsidPu3oM6dQMxDDdqg__&Key-Pair-Id=APKAIFLZBVQZ24NQH3KA`,
+    video: `https://imdb-video.media-imdb.com/vi3526864921/1401497881123-xszl4z-1433432600712.mp4?Expires=1603161781&Signature=ROaWSiUaszgs4yKv6mhUDv6JHaQD9wM7fhc0Oom58VTUWHzXl7h~9iVtwpvge6WpKDdSMODwNNf-I3qRIgOP6yKaB9k3i1g8s8m760fBtfHbTV5vladoUL~IRHNa4mgQgjD-zDOlrmDXJXgQg1zkFnga44iyiJeLIyWBgMQctZ7FAxzPi1FDwg6OqDDcOhfktnh4V-fOvrWEY3NANztEvWeyt-1kCyTMY1MvpxI8F8hptjzanQsx437n1k7xTq2VirS4heKsLxQ-QVuAtp2sMBUy3rbhIoPWNCjtaQMXvOmqF5kyWigctpr~nXypwT9zG7UEpoMnEFPhYV~58EneYA__&Key-Pair-Id=APKAIFLZBVQZ24NQH3KA`,
     reviews: reviewsMocks
   }, {
     title: `The Aviator`,
-    genre: [`Biography`, `Drama`],
+    genre: [`Biography`, `Dramas`],
     releaseDate: 2004,
     rating: `7,5`,
     quantityRatings: 719,
@@ -102,11 +102,11 @@ const films = [
     img: `/img/aviator.jpg`,
     bgSrc: `/img/bg-aviator.jpg`,
     poster: `/img/aviator-poster.jpg`,
-    video: `https://imdb-video.media-imdb.com/vi3947888665/1434659607842-pgv4ql-1564591874324.mp4?Expires=1602787668&Signature=FflpkIvY7Bv7E5qIUk2DAxZhOJY38MiYAYRpMyZeySo2rE7MSk-9rz8-oOsQnAz1asvuKGoPkMg0-mkUofDOgJyKn6KLG9tVrn4exn1D6b~y6L46FTAey2mv16ZxXnqE3BfXfRa9Q6JBXJkQ4wl5bl3yvTTFsnfVRUDdzB1Oig3IbdNjhAP6Y8nQq3J4vmm6VQ90-0jlGVNnTRckn9qjVdAlEDCQJDU-f2YdGi3a5coh2TWRwD94Ci8v2t~~fvH1NEl0H0xzaSRbKCXoaEKyCzBKpw9gTjS-xEoFKWWfD9YqfD4LAiDc9rrT-nI0nQ6q6IYZ~74UHwbIDnCRbZeMgQ__&Key-Pair-Id=APKAIFLZBVQZ24NQH3KA`,
+    video: `https://imdb-video.media-imdb.com/vi3947888665/1434659607842-pgv4ql-1564591874324.mp4?Expires=1603161810&Signature=tLCiPA6y6tzES1OUPpfg4ACcJNgAohwoPNO4XDx9Z9-ngNh01GYDGLGGc3uWn2dxDEONWYkoBktX1z6gOEkMrv3DyxmzNqxvT3dIDjuRZisKkobblxeAFLL9KJZhbFu2QU0SNW1EAaI6Cj2yypvSBOa625mqrqvJ2EcR4Z-Ml5RNXbDVQo-dxcHiPa39r0rEslFtlYYTJQ9ajwbyKyQLPGN9E-XDytSkUj2AOTCW4DI8-l8KwKW9mETJE1cO0EmNFC3eIQu6mOccvnApfvMVuqLFU3tW3pL33TZxCl2wE1dneHmlGUpB5O5cxAKwenafpNxuBBl5b94wkj~KOvOZ4A__&Key-Pair-Id=APKAIFLZBVQZ24NQH3KA`,
     reviews: reviewsMocks
   }, {
     title: `Shutter Island`,
-    genre: [`Mystery`, `Thriller`],
+    genre: [`Mystery`, `Thrillers`],
     releaseDate: 2010,
     rating: `8,2`,
     quantityRatings: 1103,
@@ -117,11 +117,11 @@ const films = [
     img: `/img/shutter-island.jpg`,
     bgSrc: `/img/bg-shutter-island.jpg`,
     poster: `/img/shutter-island-poster.jpg`,
-    video: `https://imdb-video.media-imdb.com/vi4064281/MV5BODNkZjg2YTItNzdkYy00N2M5LWI1MjQtZmMyMTVkY2RjODU4XkExMV5BbXA0XkFpbWRiLWV0cy10cmFuc2NvZGU@.mp4?Expires=1602765012&Signature=JThFwP0ZW4IWoO8741jDhajFt219f74lpikvWRDnpH5NoXkNdwdGApmf-Zabe6HfQak60XS1YlDrowLraHfcp3Bi2aCDxCi7xaoih2OEQ2ZI8IkPCU7vQrLS-hEglifWXKichiiWkebL3CjePNBi4DwudW~4e8VDcx1wNuesPDJjba7hvuqNVllLGhXqVId2QVBtmfZbabxm1mURM0ibLGRgaXV76skgGieqW57cwY2tGzKBPhaGOFzGHpxWA3jKrqjQFhMUyTD7~7eVOz0-85dFdHGaa~7mvNmfCy7platzGVrrLIiHP7l0xeG~rIWJfriX24eP1tR-9TpvSNx44g__&Key-Pair-Id=APKAIFLZBVQZ24NQH3KA`,
+    video: `https://imdb-video.media-imdb.com/vi4064281/MV5BODNkZjg2YTItNzdkYy00N2M5LWI1MjQtZmMyMTVkY2RjODU4XkExMV5BbXA0XkFpbWRiLWV0cy10cmFuc2NvZGU@.mp4?Expires=1603161836&Signature=KCI-YhwGO1MB9pyPIOAO1~6eTZu-pyOtF5nHRacH3Gm72jwVU5S7mk0C195LkeR0yPnNQmXHwt6SxpMMjpIiyJSjXgcuqz0oP2yJISp6iL-8gO9lDW9qBJsZmhRP-sCdoLi8MC7UBzww0NF0BT7YJA-DW6hG-oA-D5x1GurpXrIoAhD4y~bEKRYJKpuYDwp3yY0wyGHprNClVpEEZS9ygP58niHMGcyaF~K09AKXOZceSG2NO9jyiytOlXB34fx2gandTcQHNy-qcdOMm65CrD02EHWPr6sxKCTWFq3ghmEbC5XW1cuuicfNFGYMCxdnbSgqrR-528DacEOg17pKbQ__&Key-Pair-Id=APKAIFLZBVQZ24NQH3KA`,
     reviews: reviewsMocks
   }, {
     title: `Pulp Fiction`,
-    genre: [`Crime`, `Drama`],
+    genre: [`Crime`, `Dramas`],
     releaseDate: 1994,
     rating: `8,9`,
     quantityRatings: 1721,
@@ -132,11 +132,11 @@ const films = [
     img: `/img/pulp-fiction.jpg`,
     bgSrc: `/img/bg-pulp-fiction.jpg`,
     poster: `/img/pulp-fiction-poster.jpg`,
-    video: `https://imdb-video.media-imdb.com/vi2620371481/1434659607842-pgv4ql-1450205469045.mp4?Expires=1602765078&Signature=tQcetjBxO0WpHtGEC-lFS0lYxBsKUrS6Ed3ISGoJ4epMc2G8mMYw578iAw~zGz31cS3sMO55KDqAKoWjCpjm8C5fwKow7AOgFkJqdOIrBMKjCFUxVawCDayO9waqfYaKK2D6nWyL5BoAGzQB5xrUzm2-0Dm~ishEF0e9LQjvrbLRbGS8kvzEBq5iAFejTMn2Rxrcz8Z8j43AE-XBuXtDsn8O~NuNBJ8g4GBmUoSN2rjddfcVKsqa6r3mWmyUGdgCqFnvPr-eV6v~D-wOOOiIbMZZY48xcvxynLDyag5WeL5Pb00K8FJn28HL~P~IToXQLfVlFWRQHJI4-QSyoym7sw__&Key-Pair-Id=APKAIFLZBVQZ24NQH3KA`,
+    video: `https://imdb-video.media-imdb.com/vi2620371481/1434659607842-pgv4ql-1450205469045.mp4?Expires=1603161868&Signature=dKEPkwu83ODXkk9QBpDTHYfT5K7yZmJFVPJPtnfK6HwfRhOk~HnCobAE0H9x0YHbgmDvCAvoT8EoDChFSQpNym4adB4aOup5H8qMLd83In7gO7m3-kcvHXRQWVALVuTkjaYahByU01B0x30LfUE-YFIHXfgxt6LXxKS~heBLMJzbBcI93TivAkbXnFzgAdUBUMpXN8B59yh4iDcS44-zkQWNfkPM8M1qhpeL4HAJT2XZRgzMTJoM25scVcPAutfZ6zW0iBedLVOL764W7OYdK7EfgeiDNW-rSn9m5n4uKEcadvcZH3QcVS0A~R~APns1PlDzvoMU0BWlFg1WGyM7HQ__&Key-Pair-Id=APKAIFLZBVQZ24NQH3KA`,
     reviews: reviewsMocks
   }, {
     title: `No Country for Old Men`,
-    genre: [`Crime`, `Drama`, `Thriller`],
+    genre: [`Crime`, `Dramas`, `Thrillers`],
     releaseDate: 2007,
     rating: `8,1`,
     quantityRatings: 452,
@@ -147,7 +147,7 @@ const films = [
     img: `/img/no-country-for-old-men.jpg`,
     bgSrc: `/img/bg-no-country-for-old-men.jpg`,
     poster: `/img/no-country-for-old-men.jpg-poster`,
-    video: `https://imdb-video.media-imdb.com/vi145883417/MV5BZjkyMzE1YzItOWE1ZS00MjE3LWE4MWItNjAwOTAyNDgxODI1XkExMV5BbXA0XkFpbWRiLWV0cy10cmFuc2NvZGU@.mp4?Expires=1602765129&Signature=LzZLux-3y4fnswfBeIClKTQ0PmYyaSunjC9YLhIgaE1ofaxdIq4AOeB7LDcujqhauCiQcjNDdZEOMu4mGRJENPtJCZtoC7v53PwIzjcV1kmZpTqSeZLEmIyRW1j8GeI59IUM4SpUnLROnAgoIRs2NBW7OU-HMqgaVDCImNPdCqbESi3YanfGkUBeDafz~uSwPQzTTM6lhr~0U8d9cO0qSOxbdksNtYB2u5nPvofDqQs4y2fOSGRcpW77V0bo9Vj9~fyCpxuQoKL56UKcEqJOjIApI6GP-aRhDg30g9pW-kqNPuOAPWx7vrBpexZ~MUfILQrOPaNFz3yHCqlBT47zVg__&Key-Pair-Id=APKAIFLZBVQZ24NQH3KA`,
+    video: `https://imdb-video.media-imdb.com/vi145883417/MV5BZjkyMzE1YzItOWE1ZS00MjE3LWE4MWItNjAwOTAyNDgxODI1XkExMV5BbXA0XkFpbWRiLWV0cy10cmFuc2NvZGU@.mp4?Expires=1603161901&Signature=oPCNFH1WL8ZTEYjGkcW7iaEKbSPA1w121PlI6TDIZcAVT1CzUOdCtc6Szu~dtbPZY88vk2Dq2X4X5Wq8Xm97qVPFkqwEB8yl182z9pg7~gjaTRLrk1KBfazpeiTuzPA40axorYeMejuD94OUzjTCNciAW344RQ6SaKAi-fREHFEYov46EO1sHR3GyLwBn0scxOuBUh2jPjSTBUc2p067JBI0~XTXCRVyslqEctIPlPRYGYStExp8K-LlLu~39DMfCjsusNcQIWtJ-wLCq~BiW3oarcFerQKwpd-F544tvTpR52UPE9MXx8I2HQ0LKDwov8-dweqSnnarSTJf~zIDtg__&Key-Pair-Id=APKAIFLZBVQZ24NQH3KA`,
     reviews: reviewsMocks
   }
 ];
