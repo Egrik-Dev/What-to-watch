@@ -12,10 +12,6 @@ const initialState = {
 export const reducer = (state = initialState, action) => {
   switch (action.type) {
     case ActionType.GET_FILMS:
-      if (Genres[action.genre] === Genres.ALL_GENRES) {
-        return extend(state, {films});
-      }
-
       return extend(state, {films: action.films});
 
     case ActionType.CHANGE_GENRE:

@@ -7,6 +7,10 @@ export const ActionType = {
 };
 
 const getFilmsByGenre = (genre) => {
+  if (Genres[genre] === Genres.ALL_GENRES) {
+    return films;
+  }
+
   return films.filter((film) => film.genre.includes(Genres[genre]));
 };
 
