@@ -15,9 +15,7 @@ const App = (props) => {
     <BrowserRouter>
       <Switch>
         <Route exact path="/">
-          <MainScreen
-            films={films}
-          />
+          <MainScreen />
         </Route>
         <Route exact path="/login">
           <LoginScreen />
