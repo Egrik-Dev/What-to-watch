@@ -1,10 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {filmProps} from '../../props/props';
+import {connect} from 'react-redux';
 import AddNewReview from '../add-new-review/add-new-review';
 
 const AddReviewScreen = (props) => {
-  const {film} = props;
+  const {handleTextChange, handleRatingChange, getFilmId, films} = props;
+  const START_FIND_ID = `movies/`;
+  const END_FIND_ID = `/review`;
+
+  const filmId = getFilmId(START_FIND_ID, END_FIND_ID);
+  const film = films.find((movie) => movie.id === filmId);
 
   return (
     <section className="movie-card movie-card--full">
@@ -17,7 +22,7 @@ const AddReviewScreen = (props) => {
 
         <header className="page-header">
           <div className="logo">
-            <a href="main.html" className="logo__link">
+            <a href="/" className="logo__link">
               <span className="logo__letter logo__letter--1">W</span>
               <span className="logo__letter logo__letter--2">T</span>
               <span className="logo__letter logo__letter--3">W</span>
@@ -48,15 +53,26 @@ const AddReviewScreen = (props) => {
       </div>
 
       <div className="add-review">
-        <AddNewReview />
+        <AddNewReview
+          handleTextChange={handleTextChange}
+          handleRatingChange={handleRatingChange}
+        />
       </div>
 
     </section>
   );
 };
 
+const mapStateToProps = (state) => ({
+  films: state.films
+});
+
 AddReviewScreen.propTypes = {
-  film: PropTypes.shape(filmProps).isRequired
+  films: PropTypes.array.isRequired,
+  handleTextChange: PropTypes.func.isRequired,
+  handleRatingChange: PropTypes.func.isRequired,
+  getFilmId: PropTypes.func.isRequired
 };
 
-export default AddReviewScreen;
+export {AddReviewScreen};
+export default connect(mapStateToProps)(AddReviewScreen);

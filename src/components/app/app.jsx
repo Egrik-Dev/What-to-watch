@@ -7,6 +7,9 @@ import MyListScreen from '../my-list/my-list';
 import MovieScreen from '../movies/movies';
 import AddReviewScreen from '../add-review/add-review';
 import PlayerScreen from '../player/player';
+import withNewReview from '../../hocks/with-new-review/with-new-review';
+
+const NewReviewWrapped = withNewReview(AddReviewScreen);
 
 const App = (props) => {
   const {films} = props;
@@ -27,7 +30,7 @@ const App = (props) => {
           <MovieScreen films={films}/>
         </Route>
         <Route exact path="/movies/:id/review">
-          <AddReviewScreen film={films[3]}/>
+          <NewReviewWrapped />
         </Route>
         <Route exact path="/player/:id">
           <PlayerScreen film={films[1]}/>
