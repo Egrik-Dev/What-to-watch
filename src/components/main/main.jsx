@@ -84,13 +84,10 @@ const MainScreen = (props) => {
       <div className="page-content">
         <section className="catalog">
           <h2 className="catalog__title visually-hidden">Catalog</h2>
-
-          <ul className="catalog__genres-list">
-            <GenresList
-              activeGenre={activeGenre}
-              onFilterChange={onFilterChange}
-            />
-          </ul>
+          <GenresList
+            activeGenre={activeGenre}
+            onFilterChange={onFilterChange}
+          />
           <MoviesListWrapped films={films} />
           <div className="catalog__more">
             <button className="catalog__button" type="button">Show more</button>

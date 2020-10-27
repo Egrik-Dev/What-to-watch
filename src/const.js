@@ -10,3 +10,5 @@ export const Genres = {
   SCI_FI: `Sci-Fi`,
   THRILLERS: `Thrillers`
 };
+
+export const arrGenres = Object.entries(Genres);
