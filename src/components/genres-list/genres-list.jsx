@@ -1,26 +1,28 @@
 import React from 'react';
-import {Genres} from '../../const';
+import PropTypes from 'prop-types';
+import {arrGenres} from '../../const';
+import GenreItem from '../genre-item/genre-item';
 
 const GenresList = (props) => {
   const {activeGenre, onFilterChange} = props;
-  const arrGenres = Object.entries(Genres);
-
-  const onClickHandler = (evt, genreValue) => {
-    evt.preventDefault();
-
-    onFilterChange(genreValue);
-  };
 
   return (
-    arrGenres.map((genre, i) => {
-      const [genreValue, genreKey] = genre;
-      return (
-        <li key={i} className={`catalog__genres-item ${activeGenre === genreKey ? `catalog__genres-item--active` : ``}`}>
-          <a href="#" className="catalog__genres-link" onClick={(evt) => onClickHandler(evt, genreValue)}>{genreKey}</a>
-        </li>
-      );
-    })
+    <ul className="catalog__genres-list">
+      {arrGenres.map((genre, i) => (
+        <GenreItem
+          key={i}
+          isActiveGenre={activeGenre === genre[1]}
+          onFilterChange={onFilterChange}
+          genre={genre}
+        />
+      ))}
+    </ul>
   );
+};
+
+GenresList.propTypes = {
+  activeGenre: PropTypes.string.isRequired,
+  onFilterChange: PropTypes.func.isRequired
 };
 
 export default GenresList;

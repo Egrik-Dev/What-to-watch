@@ -5,6 +5,9 @@ import MoviesList from '../movies-list/movies-list';
 import GenresList from '../genres-list/genres-list';
 import {connect} from 'react-redux';
 import {ActionCreator} from '../../store/action';
+import withActiveFilm from '../../hocks/with-active-film/with-active-film';
+
+const MoviesListWrapped = withActiveFilm(MoviesList);
 
 const MainScreen = (props) => {
   const {activeGenre, films, onFilterChange, promoMovie} = props;
@@ -13,7 +16,8 @@ const MainScreen = (props) => {
     genre: genresPromoMovie,
     releaseDate: releasePromoMovie,
     bgSrc,
-    poster
+    poster,
+    id
   } = promoMovie;
 
   return (
@@ -55,7 +59,7 @@ const MainScreen = (props) => {
               </p>
 
               <div className="movie-card__buttons">
-                <Link to="/player/2" style={{marginRight: `14px`}}>
+                <Link to={`/player/${id}`} style={{marginRight: `14px`}}>
                   <button className="btn btn--play movie-card__button" type="button">
                     <svg viewBox="0 0 19 19" width="19" height="19">
                       <use xlinkHref="#play-s"></use>
@@ -80,18 +84,11 @@ const MainScreen = (props) => {
       <div className="page-content">
         <section className="catalog">
           <h2 className="catalog__title visually-hidden">Catalog</h2>
-
-          <ul className="catalog__genres-list">
-            <GenresList
-              activeGenre={activeGenre}
-              onFilterChange={onFilterChange}
-            />
-          </ul>
-
-          <div className="catalog__movies-list">
-            <MoviesList films={films} />
-          </div>
-
+          <GenresList
+            activeGenre={activeGenre}
+            onFilterChange={onFilterChange}
+          />
+          <MoviesListWrapped films={films} />
           <div className="catalog__more">
             <button className="catalog__button" type="button">Show more</button>
           </div>

@@ -2,11 +2,16 @@ import React from 'react';
 import {filmsProps} from '../../props/props';
 import {Link} from 'react-router-dom';
 import MoviesList from '../movies-list/movies-list';
+import withActiveFilm from '../../hocks/with-active-film/with-active-film';
+
+const MoviesListWrapped = withActiveFilm(MoviesList);
 
 const MovieScreen = (props) => {
   const {films} = props;
-  const fullCardFilm = films[3];
   const STARRING_QUANTITY = 4;
+  const filmId = Number(window.location.pathname.substring(8));
+  const fullCardFilm = films.find((film) => film.id === filmId);
+
   return (
     <React.Fragment>
       <section className="movie-card movie-card--full">
@@ -42,7 +47,7 @@ const MovieScreen = (props) => {
               </p>
 
               <div className="movie-card__buttons">
-                <Link to="/player/2" style={{marginRight: `14px`}}>
+                <Link to={`/player/${filmId}`} style={{marginRight: `14px`}}>
                   <button className="btn btn--play movie-card__button" type="button">
                     <svg viewBox="0 0 19 19" width="19" height="19">
                       <use xlinkHref="#play-s"></use>
@@ -58,7 +63,7 @@ const MovieScreen = (props) => {
                     <span>My list</span>
                   </button>
                 </Link>
-                <a href="/movies/2/review" className="btn movie-card__button">Add review</a>
+                <a href={`/movies/${filmId}/review`} className="btn movie-card__button">Add review</a>
               </div>
             </div>
           </div>
@@ -108,10 +113,7 @@ const MovieScreen = (props) => {
       <div className="page-content">
         <section className="catalog catalog--like-this">
           <h2 className="catalog__title">More like this</h2>
-
-          <div className="catalog__movies-list">
-            <MoviesList films={films} />
-          </div>
+          <MoviesListWrapped films={films} />
         </section>
 
         <footer className="page-footer">

@@ -1,35 +1,25 @@
-import React, {PureComponent} from 'react';
-import {filmsProps} from '../../props/props';
+import React from 'react';
+import PropTypes from 'prop-types';
 import MovieCard from '../movie-card/movie-card';
 
-class MoviesList extends PureComponent {
-  constructor(props) {
-    super(props);
+const MoviesList = (props) => {
+  const {films, onHoverHandler} = props;
 
-    this.state = {
-      avtiveFilm: {}
-    };
-    this.onHoverHandler = this._onHoverHandler.bind(this);
-  }
+  return (
+    <div className="catalog__movies-list">
+      {films.map((film, i) =>
+        <MovieCard
+          key={i}
+          film={film}
+          onHover={onHoverHandler}
+        />)}
+    </div>
+  );
+};
 
-  _onHoverHandler(activeMovie) {
-    this.setState(() => ({
-      avtiveFilm: activeMovie
-    }));
-  }
-
-  render() {
-    const {films} = this.props;
-    return (
-      films.map((film, i) => <MovieCard
-        key={i}
-        film={film}
-        onHover={this.onHoverHandler}
-      />)
-    );
-  }
-}
-
-MoviesList.propTypes = filmsProps;
+MoviesList.propTypes = {
+  films: PropTypes.array.isRequired,
+  onHoverHandler: PropTypes.func.isRequired
+};
 
 export default MoviesList;

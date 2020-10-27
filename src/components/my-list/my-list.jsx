@@ -1,6 +1,9 @@
 import React from 'react';
 import {filmsProps} from '../../props/props';
 import MoviesList from '../movies-list/movies-list';
+import withActiveFilm from '../../hocks/with-active-film/with-active-film';
+
+const MoviesListWrapped = withActiveFilm(MoviesList);
 
 const MyListScreen = (props) => {
   const {films} = props;
@@ -26,10 +29,7 @@ const MyListScreen = (props) => {
 
       <section className="catalog">
         <h2 className="catalog__title visually-hidden">Catalog</h2>
-
-        <div className="catalog__movies-list">
-          <MoviesList films={films} />
-        </div>
+        <MoviesListWrapped films={films} />
       </section>
 
       <footer className="page-footer">

@@ -29,6 +29,7 @@ const reviewsMocks = [
 
 const films = [
   {
+    id: 1,
     title: `The Grand Budapest Hotel`,
     genre: [`Dramas`],
     releaseDate: 2014,
@@ -42,9 +43,10 @@ const films = [
     img: `/img/macbeth.jpg`,
     bgSrc: `/img/bg-the-grand-budapest-hotel.jpg`,
     poster: `/img/the-grand-budapest-hotel-poster.jpg`,
-    video: `https://imdb-video.media-imdb.com/vi1157933593/MV5BMjM3MTY2MTYwOV5BMTFeQW1wNF5BbWU4MDI5MjQzMzEx.mp4?Expires=1603161512&Signature=PLvMfdx6bEpXZeGIZMXyb2K5VFswCGINV6EI4FG5NLp9gzkN4D-rmcnm6kHuk7PcrZpVlzQ2gQ3oTwlz~KP5L5IEcCigzA03AoNceKe-9XhhcM-giRVHaUrjxPWVH4tD2z2CvDUsktqVOIFjzY~pFzpfYjJM0Y9WQrseda3XjOhby~0V~yRnv9LmC-sKfP1S7oBghsNDMTG3HqQx4zZ~IAMYAgQriYULIkGXkGbdlPHFTcZDyxFeh2HLpRYDaOBbDcrE~KQDublC08ey1liXZGruM7Lx52R~9nTrRzSEH6zqtHgB~ajYJUdene2TfQSHF9JaCdFKjJu6iqkB5UTfwQ__&Key-Pair-Id=APKAIFLZBVQZ24NQH3KA`,
+    video: `https://imdb-video.media-imdb.com/vi1157933593/MV5BMjM3MTY2MTYwOV5BMTFeQW1wNF5BbWU4MDI5MjQzMzEx.mp4?Expires=1603768587&Signature=eTgbkrS0hgPvDoObF924MYsBLTWme-znXqOmFF3DmWEC-Z3Owa0PCkaLjEMikxbIft2JWqWqw9FiivV6XgC6eAJEny5EJrmPj-7fruLMAXoydKY0jx5Q8ntHXsxph5qAFArovY-3dkC-5jqrbDjj4G4NSska5lfWomlXBbqH9qRbbMuduzv829Tos9eFU~tOX4QVbOA7wxomoy1NUiZdThgaqFPV2v56NG0gwbwCKNBSUSpRy-8TSuXYtob-VwFCMFO2ohg-msdn-FfpYIAYPySEhqRIdqpnn8NZEhQS~4rW62hphqs2q~2F2lqrCu8MVmRoYmVr2Fos-csuPGOKDw__&Key-Pair-Id=APKAIFLZBVQZ24NQH3KA`,
     reviews: reviewsMocks
   }, {
+    id: 2,
     title: `Fantastic Beasts: The Crimes of Grindelwald`,
     genre: [`Adventure`, `Family`, `Fantasy`],
     releaseDate: 2018,
@@ -57,9 +59,10 @@ const films = [
     img: `/img/fantastic-beasts-the-crimes-of-grindelwald.jpg`,
     bgSrc: `/img/bg-Fantastic-Beasts-The-Crimes-of-Grindelwald-movie-cast.jpg`,
     poster: `/img/fantastic-beasts-poster.jpg`,
-    video: `https://imdb-video.media-imdb.com/vi965130777/1434659607842-pgv4ql-1540579487666.mp4?Expires=1603161666&Signature=q3AQYCPCLxQHvldfci8uAJUXSZ7sgBH~qRoccG35iAosAD9u6vbSKlbqDAdoGxRLo87HBFFAu-8-5nULF4~gNv2c8hhRg0apIVZMhQkkxrxcfqNYjTllaZ9~2fxl~1StVlFGyTRFvurPVBXGjnthNBoEsrOW91IiYLBYFJtZupJ6rDV-yoYN6xVmdWoVzjScQns3lz0burdKZivSgo7baDyyvp8g5YZ20-6TZncHyL6TAQdIAqiJuN41KwASybiM2D0EmU8Ppom3CP5YUikZqMRVxdf902O2BmrAIiLlUBVJZ7f7AF2-6KWgpcLY~D3pFJyykgrMBTPVxrkQiLFm1g__&Key-Pair-Id=APKAIFLZBVQZ24NQH3KA`,
+    video: `https://imdb-video.media-imdb.com/vi965130777/1434659607842-pgv4ql-1540579487666.mp4?Expires=1603768671&Signature=nOP5LFcGfwdVQ7xouFWIl8JFc10EHo3BJzR8DTnTyVufiwTmzYmN91-clq80DQK9xovAoxu3xtDxhyqMCzbvSPV8keMTTN-2hMxME7AyNujea8S9qsHUCeekqX7~yozZVLPp~0iH6CEG37cf97A2c6qmEY6BhFvPa5EtChkclLkeshNK6g2sc5d9QQrE1SgOG4WMMU5jQdUWr49MzThhHPLraHQwrP~1YioiKW71gMIJo7uvlmpsENwfLcLnlOURwkEC0eQw5fSlgvyC4bnUHgLKHSlesedMT7QD4SjNtYAds4X52wYrf4gf2dOjq-2i~XpRWbqjZCoD0zl3KEtf6g__&Key-Pair-Id=APKAIFLZBVQZ24NQH3KA`,
     reviews: reviewsMocks
   }, {
+    id: 3,
     title: `Bohemian Rhapsody`,
     genre: [`Biography`, `Dramas`, `Music`],
     releaseDate: 2018,
@@ -75,6 +78,7 @@ const films = [
     video: `https://imdb-video.media-imdb.com/vi1451538969/1434659607842-pgv4ql-1540474852592.mp4?Expires=1603161752&Signature=Jdi4SlLYijbc8X4fMxtb9jzY7ch06dbUvgWpAZ3TO4HrnXnojmX5yBxzHpZinFzk7P5uL0iLewJRR3ZZpvZTYaLHZJLHM1BLqhXlWfcKMGf-WUvB1i3~LKu0o2phIcj993PNDaBmfAlZ-HNl6Z5Xmeoedhjvo8fF5XKN8wnei3Ra2NxRSJCuUn00VZEw2hfWrDJF8gj4rHd4GdLY1EMXAjXxfaasaiGKhiZTKSplSTRR~sFWUmY62pw0OZ9EHIYo3-qszOtenekY1UgnF3XG5HVuPbwimIosq72svOdEIhFbHEiIoYCKl5HWgRtcg3lgPF7OIL3sLkHdABb9jK4N-A__&Key-Pair-Id=APKAIFLZBVQZ24NQH3KA`,
     reviews: reviewsMocks
   }, {
+    id: 4,
     title: `Macbeth`,
     genre: [`Dramas`, `History`, `War`],
     releaseDate: 2015,
@@ -90,6 +94,8 @@ const films = [
     video: `https://imdb-video.media-imdb.com/vi3526864921/1401497881123-xszl4z-1433432600712.mp4?Expires=1603161781&Signature=ROaWSiUaszgs4yKv6mhUDv6JHaQD9wM7fhc0Oom58VTUWHzXl7h~9iVtwpvge6WpKDdSMODwNNf-I3qRIgOP6yKaB9k3i1g8s8m760fBtfHbTV5vladoUL~IRHNa4mgQgjD-zDOlrmDXJXgQg1zkFnga44iyiJeLIyWBgMQctZ7FAxzPi1FDwg6OqDDcOhfktnh4V-fOvrWEY3NANztEvWeyt-1kCyTMY1MvpxI8F8hptjzanQsx437n1k7xTq2VirS4heKsLxQ-QVuAtp2sMBUy3rbhIoPWNCjtaQMXvOmqF5kyWigctpr~nXypwT9zG7UEpoMnEFPhYV~58EneYA__&Key-Pair-Id=APKAIFLZBVQZ24NQH3KA`,
     reviews: reviewsMocks
   }, {
+
+    id: 5,
     title: `The Aviator`,
     genre: [`Biography`, `Dramas`],
     releaseDate: 2004,
@@ -105,6 +111,7 @@ const films = [
     video: `https://imdb-video.media-imdb.com/vi3947888665/1434659607842-pgv4ql-1564591874324.mp4?Expires=1603161810&Signature=tLCiPA6y6tzES1OUPpfg4ACcJNgAohwoPNO4XDx9Z9-ngNh01GYDGLGGc3uWn2dxDEONWYkoBktX1z6gOEkMrv3DyxmzNqxvT3dIDjuRZisKkobblxeAFLL9KJZhbFu2QU0SNW1EAaI6Cj2yypvSBOa625mqrqvJ2EcR4Z-Ml5RNXbDVQo-dxcHiPa39r0rEslFtlYYTJQ9ajwbyKyQLPGN9E-XDytSkUj2AOTCW4DI8-l8KwKW9mETJE1cO0EmNFC3eIQu6mOccvnApfvMVuqLFU3tW3pL33TZxCl2wE1dneHmlGUpB5O5cxAKwenafpNxuBBl5b94wkj~KOvOZ4A__&Key-Pair-Id=APKAIFLZBVQZ24NQH3KA`,
     reviews: reviewsMocks
   }, {
+    id: 6,
     title: `Shutter Island`,
     genre: [`Mystery`, `Thrillers`],
     releaseDate: 2010,
@@ -120,6 +127,7 @@ const films = [
     video: `https://imdb-video.media-imdb.com/vi4064281/MV5BODNkZjg2YTItNzdkYy00N2M5LWI1MjQtZmMyMTVkY2RjODU4XkExMV5BbXA0XkFpbWRiLWV0cy10cmFuc2NvZGU@.mp4?Expires=1603161836&Signature=KCI-YhwGO1MB9pyPIOAO1~6eTZu-pyOtF5nHRacH3Gm72jwVU5S7mk0C195LkeR0yPnNQmXHwt6SxpMMjpIiyJSjXgcuqz0oP2yJISp6iL-8gO9lDW9qBJsZmhRP-sCdoLi8MC7UBzww0NF0BT7YJA-DW6hG-oA-D5x1GurpXrIoAhD4y~bEKRYJKpuYDwp3yY0wyGHprNClVpEEZS9ygP58niHMGcyaF~K09AKXOZceSG2NO9jyiytOlXB34fx2gandTcQHNy-qcdOMm65CrD02EHWPr6sxKCTWFq3ghmEbC5XW1cuuicfNFGYMCxdnbSgqrR-528DacEOg17pKbQ__&Key-Pair-Id=APKAIFLZBVQZ24NQH3KA`,
     reviews: reviewsMocks
   }, {
+    id: 7,
     title: `Pulp Fiction`,
     genre: [`Crime`, `Dramas`],
     releaseDate: 1994,
@@ -135,6 +143,7 @@ const films = [
     video: `https://imdb-video.media-imdb.com/vi2620371481/1434659607842-pgv4ql-1450205469045.mp4?Expires=1603161868&Signature=dKEPkwu83ODXkk9QBpDTHYfT5K7yZmJFVPJPtnfK6HwfRhOk~HnCobAE0H9x0YHbgmDvCAvoT8EoDChFSQpNym4adB4aOup5H8qMLd83In7gO7m3-kcvHXRQWVALVuTkjaYahByU01B0x30LfUE-YFIHXfgxt6LXxKS~heBLMJzbBcI93TivAkbXnFzgAdUBUMpXN8B59yh4iDcS44-zkQWNfkPM8M1qhpeL4HAJT2XZRgzMTJoM25scVcPAutfZ6zW0iBedLVOL764W7OYdK7EfgeiDNW-rSn9m5n4uKEcadvcZH3QcVS0A~R~APns1PlDzvoMU0BWlFg1WGyM7HQ__&Key-Pair-Id=APKAIFLZBVQZ24NQH3KA`,
     reviews: reviewsMocks
   }, {
+    id: 8,
     title: `No Country for Old Men`,
     genre: [`Crime`, `Dramas`, `Thrillers`],
     releaseDate: 2007,
