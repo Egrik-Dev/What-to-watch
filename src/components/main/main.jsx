@@ -113,10 +113,10 @@ const MainScreen = (props) => {
   );
 };
 
-const mapStateToProps = (state) => ({
-  promoFilm: state.promoFilm,
-  activeGenre: state.activeGenre,
-  films: getGenreFilms(state),
+const mapStateToProps = ({LOAD_DATA, APP_STATE}) => ({
+  promoFilm: LOAD_DATA.promoFilm,
+  activeGenre: APP_STATE.activeGenre,
+  films: getGenreFilms({LOAD_DATA, APP_STATE}),
 });
 
 const mapDispatchToProps = (dispatch) => ({

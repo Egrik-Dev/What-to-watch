@@ -1,8 +1,8 @@
 import {createSelector} from 'reselect';
 import {Genres} from '../const';
 
-export const getFilms = (state) => state.films;
-export const getActiveGenre = (state) => state.activeGenre;
+export const getFilms = ({LOAD_DATA}) => LOAD_DATA.films;
+export const getActiveGenre = ({APP_STATE}) => APP_STATE.activeGenre;
 
 export const getGenreFilms = createSelector(
     getFilms,

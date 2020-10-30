@@ -43,8 +43,8 @@ const App = (props) => {
 
 // Прокидывание redux state в App - временное решение.
 // Позднее глобальный state будет только в компоненте main
-const mapStateToProps = (state) => ({
-  films: state.films,
+const mapStateToProps = ({LOAD_DATA}) => ({
+  films: LOAD_DATA.films,
 });
 
 App.propTypes = filmsProps;
