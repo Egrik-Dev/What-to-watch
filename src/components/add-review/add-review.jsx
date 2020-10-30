@@ -15,7 +15,7 @@ const AddReviewScreen = (props) => {
     <section className="movie-card movie-card--full">
       <div className="movie-card__header">
         <div className="movie-card__bg">
-          <img src={film.bgSrc} alt={film.title} />
+          <img src={film.background_image} alt={film.name} />
         </div>
 
         <h1 className="visually-hidden">WTW</h1>
@@ -32,7 +32,7 @@ const AddReviewScreen = (props) => {
           <nav className="breadcrumbs">
             <ul className="breadcrumbs__list">
               <li className="breadcrumbs__item">
-                <a href="movie-page.html" className="breadcrumbs__link">{film.title}</a>
+                <a href="movie-page.html" className="breadcrumbs__link">{film.name}</a>
               </li>
               <li className="breadcrumbs__item">
                 <a className="breadcrumbs__link">Add review</a>
@@ -48,7 +48,7 @@ const AddReviewScreen = (props) => {
         </header>
 
         <div className="movie-card__poster movie-card__poster--small">
-          <img src={film.poster} alt={film.title} width="218" height="327" />
+          <img src={film.poster_image} alt={film.name} width="218" height="327" />
         </div>
       </div>
 

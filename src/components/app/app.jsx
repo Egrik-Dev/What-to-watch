@@ -8,6 +8,7 @@ import MovieScreen from '../movies/movies';
 import AddReviewScreen from '../add-review/add-review';
 import PlayerScreen from '../player/player';
 import withNewReview from '../../hocks/with-new-review/with-new-review';
+import {connect} from 'react-redux';
 
 const NewReviewWrapped = withNewReview(AddReviewScreen);
 
@@ -40,6 +41,13 @@ const App = (props) => {
   );
 };
 
+// Прокидывание redux state в App - временное решение.
+// Позднее глобальный state будет только в компоненте main
+const mapStateToProps = (state) => ({
+  films: state.films,
+});
+
 App.propTypes = filmsProps;
 
-export default App;
+export {App};
+export default connect(mapStateToProps)(App);

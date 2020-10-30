@@ -17,7 +17,7 @@ const MovieScreen = (props) => {
       <section className="movie-card movie-card--full">
         <div className="movie-card__hero">
           <div className="movie-card__bg">
-            <img src={fullCardFilm.bgSrc} alt={fullCardFilm.title} />
+            <img src={fullCardFilm.backgroundImage} alt={fullCardFilm.name} />
           </div>
 
           <h1 className="visually-hidden">WTW</h1>
@@ -40,10 +40,10 @@ const MovieScreen = (props) => {
 
           <div className="movie-card__wrap">
             <div className="movie-card__desc">
-              <h2 className="movie-card__title">{fullCardFilm.title}</h2>
+              <h2 className="movie-card__title">{fullCardFilm.name}</h2>
               <p className="movie-card__meta">
-                <span className="movie-card__genre">{fullCardFilm.genre.join(`, `)}</span>
-                <span className="movie-card__year">{fullCardFilm.releaseDate}</span>
+                <span className="movie-card__genre">{fullCardFilm.genre}</span>
+                <span className="movie-card__year">{fullCardFilm.released}</span>
               </p>
 
               <div className="movie-card__buttons">
@@ -72,7 +72,7 @@ const MovieScreen = (props) => {
         <div className="movie-card__wrap movie-card__translate-top">
           <div className="movie-card__info">
             <div className="movie-card__poster movie-card__poster--big">
-              <img src={fullCardFilm.poster} alt={`${fullCardFilm.title} poster`} width="218" height="327" />
+              <img src={fullCardFilm.posterImage} alt={`${fullCardFilm.name} poster`} width="218" height="327" />
             </div>
 
             <div className="movie-card__desc">
@@ -94,7 +94,7 @@ const MovieScreen = (props) => {
                 <div className="movie-rating__score">{fullCardFilm.rating}</div>
                 <p className="movie-rating__meta">
                   <span className="movie-rating__level">Very good</span>
-                  <span className="movie-rating__count">{fullCardFilm.quantityRatings}</span>
+                  <span className="movie-rating__count">{fullCardFilm.scores_count}</span>
                 </p>
               </div>
 
@@ -103,7 +103,7 @@ const MovieScreen = (props) => {
 
                 <p className="movie-card__director"><strong>Director: {fullCardFilm.director}</strong></p>
 
-                <p className="movie-card__starring"><strong>Starring: {fullCardFilm.actors.slice(0, 4).join(`, `)} {fullCardFilm.actors.length > STARRING_QUANTITY ? `and other` : ``}</strong></p>
+                <p className="movie-card__starring"><strong>Starring: {fullCardFilm.starring.slice(0, 4).join(`, `)} {fullCardFilm.starring.length > STARRING_QUANTITY ? `and other` : ``}</strong></p>
               </div>
             </div>
           </div>

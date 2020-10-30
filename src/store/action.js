@@ -1,27 +1,39 @@
-import films from '../mocks/films';
-import {Genres} from '../const';
+import {camelize} from '../utils';
 
 export const ActionType = {
   CHANGE_GENRE: `CHANGE_GENRE`,
-  GET_FILMS: `GET_FILMS`
+  LOAD_FILMS: `LOAD_FILMS`,
+  LOAD_PROMO_FILM: `LOAD_PROMO_FILM`
 };
 
-const getFilmsByGenre = (genre) => {
-  if (Genres[genre] === Genres.ALL_GENRES) {
-    return films;
+const camelizeFilm = (film) => {
+  for (let key in film) {
+    if (key.includes(`_`)) {
+      const newKey = camelize(key);
+      film[newKey] = film[key];
+      delete film[key];
+    }
   }
 
-  return films.filter((film) => film.genre.includes(Genres[genre]));
+  return film;
+};
+
+const editingFilmsData = (movies) => {
+  movies.map((film) => camelizeFilm(film));
+  return movies;
 };
 
 export const ActionCreator = {
+  loadFilms: (data) => ({
+    type: ActionType.LOAD_FILMS,
+    payload: editingFilmsData(data)
+  }),
+  loadPromoFilm: (promoFilm) => ({
+    type: ActionType.LOAD_PROMO_FILM,
+    payload: camelizeFilm(promoFilm)
+  }),
   onFilterChange: (selectedGenre) => ({
     type: ActionType.CHANGE_GENRE,
     genre: selectedGenre
-  }),
-  getFilms: (selectedGenre) => ({
-    type: ActionType.GET_FILMS,
-    films: getFilmsByGenre(selectedGenre),
-    genre: selectedGenre
-  }),
+  })
 };
