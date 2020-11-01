@@ -33,7 +33,7 @@ const withVideoPlayer = (Component) => {
 
     componentDidMount() {
       const video = this._videoRef.current;
-      video.src = this.props.film.video;
+      video.src = this.props.film.videoLink;
     }
 
     componentDidUpdate() {
@@ -43,13 +43,17 @@ const withVideoPlayer = (Component) => {
         video.play();
       } else {
         video.src = null;
-        video.src = this.props.film.video;
+        video.src = this.props.film.videoLink;
       }
+    }
+
+    componentWillUnmount() {
+      clearTimeout(this.delayTimer);
     }
 
     render() {
       const {film} = this.props;
-      const {img} = film;
+      const {previewImage} = film;
 
       return (
         <Component
@@ -57,7 +61,7 @@ const withVideoPlayer = (Component) => {
         >
           <video
             ref={this._videoRef}
-            poster={img}
+            poster={previewImage}
             width={255}
             height={159}
             muted={true}

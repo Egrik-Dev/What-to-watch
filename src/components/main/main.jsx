@@ -6,25 +6,26 @@ import GenresList from '../genres-list/genres-list';
 import {connect} from 'react-redux';
 import {ActionCreator} from '../../store/action';
 import withActiveFilm from '../../hocks/with-active-film/with-active-film';
+import {getGenreFilms} from '../../selectors/genre-selector';
 
 const MoviesListWrapped = withActiveFilm(MoviesList);
 
 const MainScreen = (props) => {
-  const {activeGenre, films, onFilterChange, promoMovie} = props;
+  const {activeGenre, films, onFilterChange, promoFilm} = props;
   const {
-    title: titlePromoMovie,
-    genre: genresPromoMovie,
-    releaseDate: releasePromoMovie,
-    bgSrc,
-    poster,
+    name: titlePromoMovie,
+    genre,
+    released: releasePromoMovie,
+    backgroundImage,
+    posterImage,
     id
-  } = promoMovie;
+  } = promoFilm;
 
   return (
     <React.Fragment>
       <section className="movie-card">
         <div className="movie-card__bg">
-          <img src={bgSrc} alt={titlePromoMovie} />
+          <img src={backgroundImage} alt={titlePromoMovie} />
         </div>
 
         <h1 className="visually-hidden">WTW</h1>
@@ -48,13 +49,13 @@ const MainScreen = (props) => {
         <div className="movie-card__wrap">
           <div className="movie-card__info">
             <div className="movie-card__poster">
-              <img src={poster} alt={titlePromoMovie} width="218" height="327" />
+              <img src={posterImage} alt={titlePromoMovie} width="218" height="327" />
             </div>
 
             <div className="movie-card__desc">
               <h2 className="movie-card__title">{titlePromoMovie}</h2>
               <p className="movie-card__meta">
-                <span className="movie-card__genre">{genresPromoMovie.join(`, `)}</span>
+                <span className="movie-card__genre">{genre}</span>
                 <span className="movie-card__year">{releasePromoMovie}</span>
               </p>
 
@@ -112,16 +113,15 @@ const MainScreen = (props) => {
   );
 };
 
-const mapStateToProps = (state) => ({
-  activeGenre: state.activeGenre,
-  films: state.films,
-  promoMovie: state.promoMovie
+const mapStateToProps = ({LOAD_DATA, APP_STATE}) => ({
+  promoFilm: LOAD_DATA.promoFilm,
+  activeGenre: APP_STATE.activeGenre,
+  films: getGenreFilms({LOAD_DATA, APP_STATE}),
 });
 
 const mapDispatchToProps = (dispatch) => ({
   onFilterChange(selectedGenre) {
     dispatch(ActionCreator.onFilterChange(selectedGenre));
-    dispatch(ActionCreator.getFilms(selectedGenre));
   },
 });
 

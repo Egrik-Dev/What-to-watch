@@ -1,14 +1,14 @@
 export const Genres = {
   ALL_GENRES: `All genres`,
-  COMEDIES: `Comedies`,
+  COMEDIE: `Comedy`,
   CRIME: `Crime`,
   DOCUMENTARY: `Documentary`,
-  DRAMAS: `Dramas`,
+  DRAMA: `Drama`,
   HORROR: `Horror`,
   KIDS_AND_FAMILY: `Kids & Family`,
   ROMANCE: `Romance`,
   SCI_FI: `Sci-Fi`,
-  THRILLERS: `Thrillers`
+  THRILLER: `Thriller`
 };
 
 export const arrGenres = Object.entries(Genres);

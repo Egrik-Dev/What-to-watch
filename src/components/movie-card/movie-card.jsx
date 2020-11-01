@@ -1,4 +1,5 @@
 import React, {PureComponent} from 'react';
+import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import {filmProps} from '../../props/props';
 import VideoPlayer from '../video-player/video-player';
@@ -25,7 +26,12 @@ class MovieCard extends PureComponent {
           film={film}
         />
         <h3 className="small-movie-card__title">
-          <a className="small-movie-card__link" href="movie-page.html">{film.title}</a>
+          <Link
+            className="small-movie-card__link"
+            to={`/movies/${film.id}`}
+          >
+            {film.name}
+          </Link>
         </h3>
       </article>
     );
