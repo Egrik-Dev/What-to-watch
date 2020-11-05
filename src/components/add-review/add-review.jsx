@@ -10,7 +10,6 @@ const AddReviewScreen = (props) => {
 
   const filmId = getFilmId(START_FIND_ID, END_FIND_ID);
   const film = films.find((movie) => movie.id === filmId);
-  console.log(film);
 
   return (
     <section className="movie-card movie-card--full">
