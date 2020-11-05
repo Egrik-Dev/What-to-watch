@@ -3,14 +3,27 @@ import {filmsProps} from '../../props/props';
 import {Link} from 'react-router-dom';
 import MoviesList from '../movies-list/movies-list';
 import withActiveFilm from '../../hocks/with-active-film/with-active-film';
+import Tabs from '../tabs/tabs';
+import {filterFilms} from '../../utils';
 
 const MoviesListWrapped = withActiveFilm(MoviesList);
 
 const MovieScreen = (props) => {
+  let [activeTab, setActiveTab] = React.useState(`Overview`);
+
+  const clickTabHandler = React.useCallback((evt) => {
+    evt.preventDefault();
+
+    const target = evt.target.text;
+    setActiveTab(activeTab = target);
+  });
+
   const {films} = props;
-  const STARRING_QUANTITY = 4;
   const filmId = Number(window.location.pathname.substring(8));
   const fullCardFilm = films.find((film) => film.id === filmId);
+
+  const filteredFilms = filterFilms(films, fullCardFilm.genre);
+  const relatedFilms = filteredFilms.filter((film) => film !== fullCardFilm);
 
   return (
     <React.Fragment>
@@ -24,11 +37,11 @@ const MovieScreen = (props) => {
 
           <header className="page-header movie-card__head">
             <div className="logo">
-              <a href="/" className="logo__link">
+              <Link to={`/`} className="logo__link">
                 <span className="logo__letter logo__letter--1">W</span>
                 <span className="logo__letter logo__letter--2">T</span>
                 <span className="logo__letter logo__letter--3">W</span>
-              </a>
+              </Link>
             </div>
 
             <div className="user-block">
@@ -74,38 +87,11 @@ const MovieScreen = (props) => {
             <div className="movie-card__poster movie-card__poster--big">
               <img src={fullCardFilm.posterImage} alt={`${fullCardFilm.name} poster`} width="218" height="327" />
             </div>
-
-            <div className="movie-card__desc">
-              <nav className="movie-nav movie-card__nav">
-                <ul className="movie-nav__list">
-                  <li className="movie-nav__item movie-nav__item--active">
-                    <a href="#" className="movie-nav__link">Overview</a>
-                  </li>
-                  <li className="movie-nav__item">
-                    <a href="#" className="movie-nav__link">Details</a>
-                  </li>
-                  <li className="movie-nav__item">
-                    <a href="#" className="movie-nav__link">Reviews</a>
-                  </li>
-                </ul>
-              </nav>
-
-              <div className="movie-rating">
-                <div className="movie-rating__score">{fullCardFilm.rating}</div>
-                <p className="movie-rating__meta">
-                  <span className="movie-rating__level">Very good</span>
-                  <span className="movie-rating__count">{fullCardFilm.scores_count}</span>
-                </p>
-              </div>
-
-              <div className="movie-card__text">
-                <p>{fullCardFilm.description}</p>
-
-                <p className="movie-card__director"><strong>Director: {fullCardFilm.director}</strong></p>
-
-                <p className="movie-card__starring"><strong>Starring: {fullCardFilm.starring.slice(0, 4).join(`, `)} {fullCardFilm.starring.length > STARRING_QUANTITY ? `and other` : ``}</strong></p>
-              </div>
-            </div>
+            <Tabs
+              activeTab={activeTab}
+              film={fullCardFilm}
+              clickTabHandler={clickTabHandler}
+            />
           </div>
         </div>
       </section>
@@ -113,16 +99,16 @@ const MovieScreen = (props) => {
       <div className="page-content">
         <section className="catalog catalog--like-this">
           <h2 className="catalog__title">More like this</h2>
-          <MoviesListWrapped films={films} />
+          <MoviesListWrapped films={relatedFilms} />
         </section>
 
         <footer className="page-footer">
           <div className="logo">
-            <a href="/" className="logo__link logo__link--light">
+            <Link to={`/`} className="logo__link logo__link--light">
               <span className="logo__letter logo__letter--1">W</span>
               <span className="logo__letter logo__letter--2">T</span>
               <span className="logo__letter logo__letter--3">W</span>
-            </a>
+            </Link>
           </div>
 
           <div className="copyright">

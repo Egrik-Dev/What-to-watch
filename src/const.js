@@ -11,4 +11,28 @@ export const Genres = {
   THRILLER: `Thriller`
 };
 
+export const FilmTabs = {
+  OVERVIEW: `Overview`,
+  DETAILS: `Details`,
+  REVIEWS: `Reviews`
+};
+
+export const Months = {
+  0: `January`,
+  1: `February`,
+  2: `March`,
+  3: `April`,
+  4: `May`,
+  5: `June`,
+  6: `July`,
+  7: `August`,
+  8: `September`,
+  9: `October`,
+  10: `November`,
+  11: `December`
+};
+
 export const arrGenres = Object.entries(Genres);
+export const arrTabs = Object.entries(FilmTabs);
+
+export const MINUTES_PER_HOUR = 60;

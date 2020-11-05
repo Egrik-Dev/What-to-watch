@@ -10,12 +10,13 @@ const AddReviewScreen = (props) => {
 
   const filmId = getFilmId(START_FIND_ID, END_FIND_ID);
   const film = films.find((movie) => movie.id === filmId);
+  console.log(film);
 
   return (
     <section className="movie-card movie-card--full">
       <div className="movie-card__header">
         <div className="movie-card__bg">
-          <img src={film.background_image} alt={film.name} />
+          <img src={film.backgroundImage} alt={film.name} />
         </div>
 
         <h1 className="visually-hidden">WTW</h1>
@@ -48,7 +49,7 @@ const AddReviewScreen = (props) => {
         </header>
 
         <div className="movie-card__poster movie-card__poster--small">
-          <img src={film.poster_image} alt={film.name} width="218" height="327" />
+          <img src={film.posterImage} alt={film.name} width="218" height="327" />
         </div>
       </div>
 
@@ -63,8 +64,8 @@ const AddReviewScreen = (props) => {
   );
 };
 
-const mapStateToProps = (state) => ({
-  films: state.films
+const mapStateToProps = ({LOAD_DATA}) => ({
+  films: LOAD_DATA.films
 });
 
 AddReviewScreen.propTypes = {
