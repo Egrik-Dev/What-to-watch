@@ -2,11 +2,8 @@ import React from 'react';
 import {filmsProps} from '../../props/props';
 import {Link} from 'react-router-dom';
 import MoviesList from '../movies-list/movies-list';
-import withActiveFilm from '../../hocks/with-active-film/with-active-film';
 import Tabs from '../tabs/tabs';
 import {filterFilms} from '../../utils';
-
-const MoviesListWrapped = withActiveFilm(MoviesList);
 
 const MovieScreen = (props) => {
   let [activeTab, setActiveTab] = React.useState(`Overview`);
@@ -101,7 +98,7 @@ const MovieScreen = (props) => {
       <div className="page-content">
         <section className="catalog catalog--like-this">
           <h2 className="catalog__title">More like this</h2>
-          <MoviesListWrapped films={relatedFilms} />
+          <MoviesList films={relatedFilms} />
         </section>
 
         <footer className="page-footer">

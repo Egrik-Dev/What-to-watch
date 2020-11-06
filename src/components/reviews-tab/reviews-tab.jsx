@@ -1,18 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {filmProps} from '../../props/props';
-import {fetchFilmComments} from '../../store/action-api';
-import {connect} from 'react-redux';
 import {dateParse} from '../../utils';
+import axios from 'axios';
+import {BACKEND_URL} from '../../const';
 
 const ReviewsTab = (props) => {
-  const {film, fetchComments} = props;
+  const {film} = props;
+  const MOVIE_URL = `/comments/`;
 
   let [comments, setComments] = React.useState({});
   let [isFetchingComments, setFlag] = React.useState(true);
 
   React.useEffect(() => {
-    fetchComments(film.id)
+    axios.get(BACKEND_URL + MOVIE_URL + film.id)
       .then(({data}) => setComments(data))
       .then(() => setFlag(false));
   }, []);
@@ -22,7 +23,7 @@ const ReviewsTab = (props) => {
   }
 
   return (
-    <React.Fragment>
+    <>
       <div className="movie-card__reviews movie-card__row">
         <div className="movie-card__reviews-col">
           {comments.map((comment) => (
@@ -44,20 +45,12 @@ const ReviewsTab = (props) => {
           ))}
         </div>
       </div>
-    </React.Fragment>
+    </>
   );
 };
 
 ReviewsTab.propTypes = {
   film: PropTypes.shape(filmProps),
-  fetchComments: PropTypes.func.isRequired
 };
 
-const mapDispatchToProps = (dispatch) => ({
-  fetchComments(id) {
-    return dispatch(fetchFilmComments(id));
-  }
-});
-
-export {ReviewsTab};
-export default connect(null, mapDispatchToProps)(ReviewsTab);
+export default ReviewsTab;

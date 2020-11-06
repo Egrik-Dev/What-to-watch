@@ -1,3 +1,5 @@
+export const BACKEND_URL = `https://5.react.pages.academy/wtw`;
+
 export const Genres = {
   ALL_GENRES: `All genres`,
   COMEDIE: `Comedy`,
