@@ -19,7 +19,7 @@ const OverviewTab = (props) => {
       return `Awesome`;
     }
 
-    let ratingError = new Error(`Incorrect rating provided`);
+    const ratingError = new Error(`Incorrect rating provided`);
     throw ratingError;
   };
 

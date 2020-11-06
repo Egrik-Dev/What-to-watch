@@ -13,12 +13,12 @@ const ReviewsTab = (props) => {
 
   React.useEffect(() => {
     fetchComments(film.id)
-      .then(({data}) => setComments(comments = data))
-      .then(() => setFlag(isFetchingComments = false));
+      .then(({data}) => setComments(data))
+      .then(() => setFlag(false));
   }, []);
 
   if (isFetchingComments) {
-    return <div>...Loading</div>;
+    return <div>Loading...</div>;
   }
 
   return (
@@ -35,7 +35,7 @@ const ReviewsTab = (props) => {
 
                 <footer className="review__details">
                   <cite className="review__author">{comment.user.name}</cite>
-                  <time className="review__date" dateTime="2016-12-24">{dateParse(comment.date)}</time>
+                  <time className="review__date" dateTime={comment.date.slice(0, 10)}>{dateParse(comment.date)}</time>
                 </footer>
               </blockquote>
 

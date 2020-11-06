@@ -15,7 +15,9 @@ const MovieScreen = (props) => {
     evt.preventDefault();
 
     const target = evt.target.text;
-    setActiveTab(activeTab = target);
+    if (target) {
+      setActiveTab(target);
+    }
   });
 
   const {films} = props;

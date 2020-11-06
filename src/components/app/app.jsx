@@ -32,7 +32,7 @@ class App extends PureComponent {
     const {films, isLoading} = this.props;
 
     if (isLoading) {
-      return <div>...Loading</div>;
+      return <div>Loading...</div>;
     }
 
     return (

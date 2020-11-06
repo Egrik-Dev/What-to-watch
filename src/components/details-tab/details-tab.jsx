@@ -15,17 +15,23 @@ const DetailsTab = (props) => {
           <strong className="movie-card__details-name">Director</strong>
           <span className="movie-card__details-value">{film.director}</span>
         </p>
-        <p className="movie-card__details-item">
+        <div className="movie-card__details-item">
           <strong className="movie-card__details-name">Starring</strong>
-          <span className="movie-card__details-value">
+          <ul className="movie-card__details-value" style={
+            {
+              padding: `0`,
+              margin: `0`,
+              color: `#131313`
+            }
+          }>
             {starring.map((actor, i, arr) => (
-              <React.Fragment key={i}>
+              <li key={i} style={{listStyle: `none`}}>
                 {(arr.length - 1 === i) ? `${actor}` : `${actor},`}
-                <br />
-              </React.Fragment>)
+              </li>
+            )
             )}
-          </span>
-        </p>
+          </ul>
+        </div>
       </div>
       <div className="movie-card__text-col">
         <p className="movie-card__details-item">
