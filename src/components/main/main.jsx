@@ -68,7 +68,7 @@ const MainScreen = (props) => {
                     <span>Play</span>
                   </button>
                 </Link>
-                <Link to="/movies/1">
+                <Link to="/mylist">
                   <button className="btn btn--list movie-card__button" type="button">
                     <svg viewBox="0 0 19 20" width="19" height="20">
                       <use xlinkHref="#add"></use>
@@ -114,6 +114,7 @@ const MainScreen = (props) => {
 };
 
 const mapStateToProps = ({LOAD_DATA, APP_STATE}) => ({
+
   promoFilm: LOAD_DATA.promoFilm,
   activeGenre: APP_STATE.activeGenre,
   films: getGenreFilms({LOAD_DATA, APP_STATE}),
