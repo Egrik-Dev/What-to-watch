@@ -34,6 +34,8 @@ export const Months = {
   11: `December`
 };
 
+export const QUANTITY_RENDERED_FILMS = 8;
+
 export const arrGenres = Object.entries(Genres);
 export const arrTabs = Object.entries(FilmTabs);
 

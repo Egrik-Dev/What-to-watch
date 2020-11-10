@@ -13,14 +13,12 @@ class MovieCard extends PureComponent {
   }
 
   render() {
-    const {film, onHover} = this.props;
+    const {film, clickFilmHandler} = this.props;
 
     return (
       <article
         className="small-movie-card catalog__movies-card"
-        onMouseEnter={() => {
-          onHover(film);
-        }}
+        onClick={() => clickFilmHandler ? clickFilmHandler(film.id) : ``}
       >
         <VideoPlayerWrapped
           film={film}
@@ -40,7 +38,7 @@ class MovieCard extends PureComponent {
 
 MovieCard.propTypes = {
   film: PropTypes.shape(filmProps).isRequired,
-  onHover: PropTypes.func.isRequired
+  clickFilmHandler: PropTypes.func
 };
 
 export default MovieCard;

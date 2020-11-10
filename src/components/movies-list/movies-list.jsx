@@ -4,18 +4,13 @@ import MovieCard from '../movie-card/movie-card';
 import ShowMore from '../show-more/show-more';
 
 const MoviesList = (props) => {
-  const {films} = props;
+  const {films, clickFilmHandler} = props;
 
-  const [, setActiveFilm] = React.useState({});
-  let [renderedFilms, setFilms] = React.useState([]);
+  const [renderedFilms, setFilms] = React.useState([]);
 
   React.useEffect(() => {
     setFilms(films.slice(0, 8));
   }, [films]);
-
-  const onHoverHandler = React.useCallback((activeMovie) => {
-    setActiveFilm(activeMovie);
-  }, []);
 
   const onClickShowMoreHandler = React.useCallback(() => {
     const moreRenderedFilms = films.slice(renderedFilms.length, (renderedFilms.length + 8));
@@ -29,7 +24,7 @@ const MoviesList = (props) => {
           <MovieCard
             key={i}
             film={film}
-            onHover={onHoverHandler}
+            clickFilmHandler={clickFilmHandler}
           />)}
       </div>
       {films.length !== renderedFilms.length &&
@@ -43,6 +38,7 @@ const MoviesList = (props) => {
 
 MoviesList.propTypes = {
   films: PropTypes.array.isRequired,
+  clickFilmHandler: PropTypes.func
 };
 
 export default MoviesList;

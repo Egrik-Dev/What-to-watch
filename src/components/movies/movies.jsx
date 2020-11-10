@@ -4,9 +4,19 @@ import {Link} from 'react-router-dom';
 import MoviesList from '../movies-list/movies-list';
 import Tabs from '../tabs/tabs';
 import {filterFilms} from '../../utils';
+import {QUANTITY_RENDERED_FILMS} from '../../const';
 
 const MovieScreen = (props) => {
+  const {films} = props;
+
+  const getFilmId = () => (Number(window.location.pathname.substring(QUANTITY_RENDERED_FILMS)));
+
   let [activeTab, setActiveTab] = React.useState(`Overview`);
+  let [activeFilmId, setActiveFilmId] = React.useState(getFilmId());
+
+  const clickFilmHandler = React.useCallback((filmId) => {
+    setActiveFilmId(filmId);
+  });
 
   const clickTabHandler = React.useCallback((evt) => {
     evt.preventDefault();
@@ -17,9 +27,7 @@ const MovieScreen = (props) => {
     }
   });
 
-  const {films} = props;
-  const filmId = Number(window.location.pathname.substring(8));
-  const fullCardFilm = films.find((film) => film.id === filmId);
+  const fullCardFilm = films.find((film) => film.id === activeFilmId);
 
   const filteredFilms = filterFilms(films, fullCardFilm.genre);
   const relatedFilms = filteredFilms.filter((film) => film !== fullCardFilm);
@@ -59,7 +67,7 @@ const MovieScreen = (props) => {
               </p>
 
               <div className="movie-card__buttons">
-                <Link to={`/player/${filmId}`} style={{marginRight: `14px`}}>
+                <Link to={`/player/${fullCardFilm.id}`} style={{marginRight: `14px`}}>
                   <button className="btn btn--play movie-card__button" type="button">
                     <svg viewBox="0 0 19 19" width="19" height="19">
                       <use xlinkHref="#play-s"></use>
@@ -75,7 +83,7 @@ const MovieScreen = (props) => {
                     <span>My list</span>
                   </button>
                 </Link>
-                <a href={`/movies/${filmId}/review`} className="btn movie-card__button">Add review</a>
+                <a href={`/movies/${fullCardFilm.id}/review`} className="btn movie-card__button">Add review</a>
               </div>
             </div>
           </div>
@@ -98,7 +106,10 @@ const MovieScreen = (props) => {
       <div className="page-content">
         <section className="catalog catalog--like-this">
           <h2 className="catalog__title">More like this</h2>
-          <MoviesList films={relatedFilms} />
+          <MoviesList
+            films={relatedFilms}
+            clickFilmHandler={clickFilmHandler}
+          />
         </section>
 
         <footer className="page-footer">
