@@ -5,10 +5,7 @@ import MoviesList from '../movies-list/movies-list';
 import GenresList from '../genres-list/genres-list';
 import {connect} from 'react-redux';
 import {ActionCreator} from '../../store/action';
-import withActiveFilm from '../../hocks/with-active-film/with-active-film';
 import {getGenreFilms} from '../../selectors/genre-selector';
-
-const MoviesListWrapped = withActiveFilm(MoviesList);
 
 const MainScreen = (props) => {
   const {activeGenre, films, onFilterChange, promoFilm} = props;
@@ -89,10 +86,7 @@ const MainScreen = (props) => {
             activeGenre={activeGenre}
             onFilterChange={onFilterChange}
           />
-          <MoviesListWrapped films={films} />
-          <div className="catalog__more">
-            <button className="catalog__button" type="button">Show more</button>
-          </div>
+          <MoviesList films={films} />
         </section>
 
         <footer className="page-footer">

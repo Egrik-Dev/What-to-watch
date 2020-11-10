@@ -9,7 +9,3 @@ export const fetchFilms = () => (dispatch, _getState, api) => (
   api.get(`/films`)
     .then(({data}) => dispatch(ActionCreator.loadFilms(data)))
 );
-
-export const fetchFilmComments = (id) => (_dispatch, _getState, api) => (
-  api.get(`/comments/${id}`)
-);

@@ -1,3 +1,5 @@
+export const BACKEND_URL = `https://5.react.pages.academy/wtw`;
+
 export const Genres = {
   ALL_GENRES: `All genres`,
   COMEDIE: `Comedy`,
@@ -31,6 +33,8 @@ export const Months = {
   10: `November`,
   11: `December`
 };
+
+export const QUANTITY_RENDERED_FILMS = 8;
 
 export const arrGenres = Object.entries(Genres);
 export const arrTabs = Object.entries(FilmTabs);

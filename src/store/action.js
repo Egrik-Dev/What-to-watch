@@ -4,7 +4,7 @@ export const ActionType = {
   CHANGE_GENRE: `CHANGE_GENRE`,
   LOAD_FILMS: `LOAD_FILMS`,
   LOAD_PROMO_FILM: `LOAD_PROMO_FILM`,
-  LOAD_DONE: `LOAD_DONE`
+  LOAD_DONE: `LOAD_DONE`,
 };
 
 const camelizeFilm = (film) => {

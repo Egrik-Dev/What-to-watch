@@ -1,6 +1,6 @@
 import axios from 'axios';
+import {BACKEND_URL} from '../const';
 
-const BACKEND_URL = `https://5.react.pages.academy/wtw`;
 const TIMEOUT = 5000;
 
 export const createApi = () => {
