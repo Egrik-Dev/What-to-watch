@@ -22,7 +22,7 @@ const PlayerScreen = (props) => {
 
   const getFormatedTime = (duration) => {
     const minutes = Math.floor(duration / 60);
-    const seconds = Math.round(duration % 60);
+    const seconds = Math.floor(duration % 60);
     const hours = Math.floor(minutes / 60);
     return (`${hours}:${minutes}:${seconds}`);
   };
@@ -44,7 +44,12 @@ const PlayerScreen = (props) => {
 
   React.useEffect(() => {
     const video = videoRef.current;
-    const elapsedTimer = setInterval(() => setElapsedTime(video.duration - video.currentTime), 1000);
+
+    const elapsedTimer = setInterval(() => {
+      if (video.duration) {
+        setElapsedTime(video.duration - video.currentTime);
+      }
+    }, 1000);
 
     if (isPlaying) {
       video.play();
