@@ -3,9 +3,6 @@ import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import {filmProps} from '../../props/props';
 import VideoPlayer from '../video-player/video-player';
-import withVideoPlayer from '../../hocks/with-video-player/with-video-player';
-
-const VideoPlayerWrapped = withVideoPlayer(VideoPlayer);
 
 class MovieCard extends PureComponent {
   constructor(props) {
@@ -20,7 +17,7 @@ class MovieCard extends PureComponent {
         className="small-movie-card catalog__movies-card"
         onClick={() => clickFilmHandler ? clickFilmHandler(film.id) : ``}
       >
-        <VideoPlayerWrapped
+        <VideoPlayer
           film={film}
         />
         <h3 className="small-movie-card__title">

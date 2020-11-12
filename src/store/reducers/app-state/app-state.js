@@ -2,7 +2,7 @@ import {ActionType} from '../../action';
 import {extend} from '../../../utils';
 
 const initialState = {
-  activeGenre: `ALL_GENRES`,
+  activeGenre: `ALL_GENRES`
 };
 
 export const appState = (state = initialState, action) => {

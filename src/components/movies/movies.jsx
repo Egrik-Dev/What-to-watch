@@ -4,12 +4,12 @@ import {Link} from 'react-router-dom';
 import MoviesList from '../movies-list/movies-list';
 import Tabs from '../tabs/tabs';
 import {filterFilms} from '../../utils';
-import {QUANTITY_RENDERED_FILMS} from '../../const';
+import {PATH_URL_ID, MAX_RELATED_FILMS} from '../../const';
 
 const MovieScreen = (props) => {
   const {films} = props;
 
-  const getFilmId = () => (Number(window.location.pathname.substring(QUANTITY_RENDERED_FILMS)));
+  const getFilmId = () => (Number(window.location.pathname.substring(PATH_URL_ID)));
 
   let [activeTab, setActiveTab] = React.useState(`Overview`);
   let [activeFilmId, setActiveFilmId] = React.useState(getFilmId());
@@ -107,7 +107,7 @@ const MovieScreen = (props) => {
         <section className="catalog catalog--like-this">
           <h2 className="catalog__title">More like this</h2>
           <MoviesList
-            films={relatedFilms}
+            films={relatedFilms.slice(0, MAX_RELATED_FILMS)}
             clickFilmHandler={clickFilmHandler}
           />
         </section>

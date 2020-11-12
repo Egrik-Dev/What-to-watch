@@ -54,7 +54,7 @@ class App extends PureComponent {
             <NewReviewWrapped />
           </Route>
           <Route exact path="/player/:id">
-            <PlayerScreen film={films[1]}/>
+            <PlayerScreen films={films}/>
           </Route>
         </Switch>
       </BrowserRouter>
