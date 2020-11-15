@@ -1,12 +1,12 @@
 import React, {createRef} from 'react';
 import {Link} from 'react-router-dom';
 import {filmsProps} from '../../props/props';
-import {QUANTITY_RENDERED_FILMS} from '../../const';
+import PropTypes from 'prop-types';
 
 const PlayerScreen = (props) => {
-  const {films} = props;
+  const {films, id} = props;
 
-  const activeFilmId = Number(window.location.pathname.substring(QUANTITY_RENDERED_FILMS));
+  const activeFilmId = Number(id);
   const fullCardFilm = films.find((film) => film.id === activeFilmId);
 
   const {previewImage} = fullCardFilm;
@@ -107,6 +107,9 @@ const PlayerScreen = (props) => {
   );
 };
 
-PlayerScreen.propTypes = filmsProps;
+PlayerScreen.propTypes = {
+  films: filmsProps.films,
+  id: PropTypes.string.isRequired
+};
 
 export default PlayerScreen;

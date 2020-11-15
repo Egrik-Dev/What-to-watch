@@ -4,12 +4,10 @@ import {connect} from 'react-redux';
 import AddNewReview from '../add-new-review/add-new-review';
 
 const AddReviewScreen = (props) => {
-  const {handleTextChange, handleRatingChange, getFilmId, films} = props;
-  const START_FIND_ID = `movies/`;
-  const END_FIND_ID = `/review`;
+  const {handleTextChange, handleRatingChange, films, id} = props;
+  const activeFilmId = Number(id);
 
-  const filmId = getFilmId(START_FIND_ID, END_FIND_ID);
-  const film = films.find((movie) => movie.id === filmId);
+  const film = films.find((movie) => movie.id === activeFilmId);
 
   return (
     <section className="movie-card movie-card--full">
@@ -71,7 +69,7 @@ AddReviewScreen.propTypes = {
   films: PropTypes.array.isRequired,
   handleTextChange: PropTypes.func.isRequired,
   handleRatingChange: PropTypes.func.isRequired,
-  getFilmId: PropTypes.func.isRequired
+  id: PropTypes.string.isRequired
 };
 
 export {AddReviewScreen};
