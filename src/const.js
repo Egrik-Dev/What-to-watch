@@ -35,6 +35,8 @@ export const Months = {
 };
 
 export const QUANTITY_RENDERED_FILMS = 8;
+export const MAX_RELATED_FILMS = 4;
+export const PATH_URL_ID = 8;
 
 export const arrGenres = Object.entries(Genres);
 export const arrTabs = Object.entries(FilmTabs);

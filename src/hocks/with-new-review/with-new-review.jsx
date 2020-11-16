@@ -28,19 +28,11 @@ const withNewReview = (Component) => {
       }));
     }
 
-    _getFilmId(startFind, endFind) {
-      const filmPath = window.location.pathname;
-      const strReview = filmPath.indexOf(endFind);
-      const strMovies = filmPath.indexOf(startFind) + startFind.length;
-      return Number(filmPath.substring(strMovies, strReview));
-    }
-
     render() {
       return <Component
         {...this.props}
         handleTextChange={this.handleTextChange}
         handleRatingChange={this.handleRatingChange}
-        getFilmId={this._getFilmId}
       />;
     }
   }

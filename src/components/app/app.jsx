@@ -47,15 +47,21 @@ class App extends PureComponent {
           <Route exact path="/mylist">
             <MyListScreen films={films}/>
           </Route>
-          <Route exact path="/movies/:id">
-            <MovieScreen films={films}/>
-          </Route>
-          <Route exact path="/movies/:id/review">
-            <NewReviewWrapped />
-          </Route>
-          <Route exact path="/player/:id">
-            <PlayerScreen film={films[1]}/>
-          </Route>
+          <Route exact path="/movies/:id" render={(props) => (
+            <MovieScreen
+              films={films}
+              id={props.match.params.id}
+            />
+          )} />
+          <Route exact path="/movies/:id/review" render={(props) => (
+            <NewReviewWrapped id={props.match.params.id} />
+          )} />
+          <Route exact path="/player/:id" render={(props) => (
+            <PlayerScreen
+              id={props.match.params.id}
+              films={films}
+            />
+          )} />
         </Switch>
       </BrowserRouter>
     );

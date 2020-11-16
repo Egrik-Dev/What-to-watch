@@ -4,15 +4,14 @@ import {Link} from 'react-router-dom';
 import MoviesList from '../movies-list/movies-list';
 import Tabs from '../tabs/tabs';
 import {filterFilms} from '../../utils';
-import {QUANTITY_RENDERED_FILMS} from '../../const';
+import {MAX_RELATED_FILMS} from '../../const';
+import PropTypes from 'prop-types';
 
 const MovieScreen = (props) => {
-  const {films} = props;
+  const {films, id} = props;
 
-  const getFilmId = () => (Number(window.location.pathname.substring(QUANTITY_RENDERED_FILMS)));
-
-  let [activeTab, setActiveTab] = React.useState(`Overview`);
-  let [activeFilmId, setActiveFilmId] = React.useState(getFilmId());
+  const [activeTab, setActiveTab] = React.useState(`Overview`);
+  const [activeFilmId, setActiveFilmId] = React.useState(Number(id));
 
   const clickFilmHandler = React.useCallback((filmId) => {
     setActiveFilmId(filmId);
@@ -107,7 +106,7 @@ const MovieScreen = (props) => {
         <section className="catalog catalog--like-this">
           <h2 className="catalog__title">More like this</h2>
           <MoviesList
-            films={relatedFilms}
+            films={relatedFilms.slice(0, MAX_RELATED_FILMS)}
             clickFilmHandler={clickFilmHandler}
           />
         </section>
@@ -130,6 +129,9 @@ const MovieScreen = (props) => {
   );
 };
 
-MovieScreen.propTypes = filmsProps;
+MovieScreen.propTypes = {
+  films: filmsProps.films,
+  id: PropTypes.string.isRequired
+};
 
 export default MovieScreen;
