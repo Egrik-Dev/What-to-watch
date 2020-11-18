@@ -2,6 +2,7 @@ import React from 'react';
 import {filmsProps} from '../../props/props';
 import MoviesList from '../movies-list/movies-list';
 import {Link} from 'react-router-dom';
+import HeaderUserBlock from '../header-user-block/header-user-block';
 
 const MyListScreen = (props) => {
   const {films} = props;
@@ -18,11 +19,7 @@ const MyListScreen = (props) => {
 
         <h1 className="page-title user-page__title">My list</h1>
 
-        <div className="user-block">
-          <div className="user-block__avatar">
-            <img src="img/avatar.jpg" alt="User avatar" width="63" height="63" />
-          </div>
-        </div>
+        <HeaderUserBlock />
       </header>
 
       <section className="catalog">

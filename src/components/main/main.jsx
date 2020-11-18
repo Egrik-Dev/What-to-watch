@@ -6,6 +6,7 @@ import GenresList from '../genres-list/genres-list';
 import {connect} from 'react-redux';
 import {ActionCreator} from '../../store/action';
 import {getGenreFilms} from '../../selectors/genre-selector';
+import HeaderUserBlock from '../header-user-block/header-user-block';
 
 const MainScreen = (props) => {
   const {activeGenre, films, onFilterChange, promoFilm} = props;
@@ -37,9 +38,7 @@ const MainScreen = (props) => {
           </div>
 
           <div className="user-block">
-            <div className="user-block__avatar">
-              <img src="img/avatar.jpg" alt="User avatar" width="63" height="63" />
-            </div>
+            <HeaderUserBlock />
           </div>
         </header>
 
@@ -108,7 +107,6 @@ const MainScreen = (props) => {
 };
 
 const mapStateToProps = ({LOAD_DATA, APP_STATE}) => ({
-
   promoFilm: LOAD_DATA.promoFilm,
   activeGenre: APP_STATE.activeGenre,
   films: getGenreFilms({LOAD_DATA, APP_STATE}),

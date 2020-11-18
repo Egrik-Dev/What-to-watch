@@ -6,6 +6,7 @@ import Tabs from '../tabs/tabs';
 import {filterFilms} from '../../utils';
 import {MAX_RELATED_FILMS} from '../../const';
 import PropTypes from 'prop-types';
+import HeaderUserBlock from '../header-user-block/header-user-block';
 
 const MovieScreen = (props) => {
   const {films, id} = props;
@@ -50,11 +51,7 @@ const MovieScreen = (props) => {
               </Link>
             </div>
 
-            <div className="user-block">
-              <div className="user-block__avatar">
-                <img src="/img/avatar.jpg" alt="User avatar" width="63" height="63" />
-              </div>
-            </div>
+            <HeaderUserBlock />
           </header>
 
           <div className="movie-card__wrap">
@@ -82,7 +79,7 @@ const MovieScreen = (props) => {
                     <span>My list</span>
                   </button>
                 </Link>
-                <a href={`/movies/${fullCardFilm.id}/review`} className="btn movie-card__button">Add review</a>
+                <Link to={`/movies/${fullCardFilm.id}/review`} className="btn movie-card__button">Add review</Link>
               </div>
             </div>
           </div>

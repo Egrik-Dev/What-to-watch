@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
+import {Link} from 'react-router-dom';
 import AddNewReview from '../add-new-review/add-new-review';
+import HeaderUserBlock from '../header-user-block/header-user-block';
 
 const AddReviewScreen = (props) => {
   const {handleTextChange, handleRatingChange, films, id} = props;
@@ -20,11 +22,11 @@ const AddReviewScreen = (props) => {
 
         <header className="page-header">
           <div className="logo">
-            <a href="/" className="logo__link">
+            <Link to={`/`} className="logo__link">
               <span className="logo__letter logo__letter--1">W</span>
               <span className="logo__letter logo__letter--2">T</span>
               <span className="logo__letter logo__letter--3">W</span>
-            </a>
+            </Link>
           </div>
 
           <nav className="breadcrumbs">
@@ -38,11 +40,7 @@ const AddReviewScreen = (props) => {
             </ul>
           </nav>
 
-          <div className="user-block">
-            <div className="user-block__avatar">
-              <img src="/img/avatar.jpg" alt="User avatar" width="63" height="63" />
-            </div>
-          </div>
+          <HeaderUserBlock />
         </header>
 
         <div className="movie-card__poster movie-card__poster--small">
