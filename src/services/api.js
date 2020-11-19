@@ -3,7 +3,11 @@ import {BACKEND_URL} from '../const';
 
 const TIMEOUT = 5000;
 
-export const createApi = () => {
+const HttpCode = {
+  UNAUTHORIZED: 401
+};
+
+export const createApi = (onUnauthorized) => {
   const api = axios.create({
     baseURL: BACKEND_URL,
     timeout: TIMEOUT,
@@ -13,6 +17,14 @@ export const createApi = () => {
   const onSucess = (response) => response;
 
   const onFail = (err) => {
+    const {response} = err;
+
+    if (response.status === HttpCode.UNAUTHORIZED) {
+      onUnauthorized();
+
+      throw err;
+    }
+
     throw err;
   };
 

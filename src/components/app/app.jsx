@@ -1,7 +1,7 @@
 import React, {PureComponent} from "react";
 import {filmsProps} from '../../props/props';
 import PropTypes from 'prop-types';
-import {BrowserRouter, Switch, Route} from 'react-router-dom';
+import {Switch, Route, Router} from 'react-router-dom';
 import MainScreen from '../main/main';
 import LoginScreen from '../login/login';
 import MyListScreen from '../my-list/my-list';
@@ -10,8 +10,10 @@ import AddReviewScreen from '../add-review/add-review';
 import PlayerScreen from '../player/player';
 import withNewReview from '../../hocks/with-new-review/with-new-review';
 import {connect} from 'react-redux';
-import {fetchFilms, fetchPromoFilm} from '../../store/action-api';
+import {fetchFilms, fetchPromoFilm, checkAuth} from '../../store/action-api';
 import {ActionCreator} from '../../store/action';
+import PrivateRoute from '../private-route/private-route';
+import browserHistory from '../../browser-history';
 
 const NewReviewWrapped = withNewReview(AddReviewScreen);
 
@@ -21,11 +23,13 @@ class App extends PureComponent {
   }
 
   componentDidMount() {
+    const {fetchFilmsAction, fetchPromoFilmAction, checkAuthAction, loadDone} = this.props;
     Promise.all([
-      this.props._fetchFilms(),
-      this.props._fetchPromoFilm()
+      fetchFilmsAction(),
+      fetchPromoFilmAction(),
+      checkAuthAction()
     ])
-    .then(() => this.props.loadDone());
+    .then(() => loadDone());
   }
 
   render() {
@@ -36,7 +40,7 @@ class App extends PureComponent {
     }
 
     return (
-      <BrowserRouter>
+      <Router history={browserHistory}>
         <Switch>
           <Route exact path="/">
             <MainScreen />
@@ -44,18 +48,30 @@ class App extends PureComponent {
           <Route exact path="/login">
             <LoginScreen />
           </Route>
-          <Route exact path="/mylist">
-            <MyListScreen films={films}/>
-          </Route>
+          <PrivateRoute
+            exact
+            path="/mylist"
+            render={() => {
+              return (
+                <MyListScreen films={films}/>
+              );
+            }}
+          />
           <Route exact path="/movies/:id" render={(props) => (
             <MovieScreen
               films={films}
               id={props.match.params.id}
             />
           )} />
-          <Route exact path="/movies/:id/review" render={(props) => (
-            <NewReviewWrapped id={props.match.params.id} />
-          )} />
+          <PrivateRoute
+            exact
+            path="/movies/:id/review"
+            render={(props) => {
+              return (
+                <NewReviewWrapped id={props.match.params.id} />
+              );
+            }}
+          />
           <Route exact path="/player/:id" render={(props) => (
             <PlayerScreen
               id={props.match.params.id}
@@ -63,24 +79,25 @@ class App extends PureComponent {
             />
           )} />
         </Switch>
-      </BrowserRouter>
+      </Router>
     );
   }
 }
 
-// Прокидывание redux state в App - временное решение.
-// Позднее глобальный state будет только в компоненте main
 const mapStateToProps = ({LOAD_DATA}) => ({
   films: LOAD_DATA.films,
   isLoading: LOAD_DATA.isLoading
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  _fetchFilms() {
+  fetchFilmsAction() {
     return dispatch(fetchFilms());
   },
-  _fetchPromoFilm() {
+  fetchPromoFilmAction() {
     return dispatch(fetchPromoFilm());
+  },
+  checkAuthAction() {
+    dispatch(checkAuth());
   },
   loadDone() {
     dispatch(ActionCreator.loadDone());
@@ -90,9 +107,10 @@ const mapDispatchToProps = (dispatch) => ({
 App.propTypes = {
   films: filmsProps.films,
   isLoading: PropTypes.bool.isRequired,
-  _fetchFilms: PropTypes.func.isRequired,
-  _fetchPromoFilm: PropTypes.func.isRequired,
-  loadDone: PropTypes.func.isRequired
+  fetchFilmsAction: PropTypes.func.isRequired,
+  fetchPromoFilmAction: PropTypes.func.isRequired,
+  loadDone: PropTypes.func.isRequired,
+  checkAuthAction: PropTypes.func.isRequired
 };
 
 export {App};

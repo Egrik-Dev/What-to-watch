@@ -5,6 +5,8 @@ export const ActionType = {
   LOAD_FILMS: `LOAD_FILMS`,
   LOAD_PROMO_FILM: `LOAD_PROMO_FILM`,
   LOAD_DONE: `LOAD_DONE`,
+  CHANGE_AUTH_STATUS: `CHANGE_AUTH_STATUS`,
+  REDIRECT_TO_ROUTE: `REDIRECT_TO_ROUTE`
 };
 
 const camelizeFilm = (film) => {
@@ -40,5 +42,13 @@ export const ActionCreator = {
   onFilterChange: (selectedGenre) => ({
     type: ActionType.CHANGE_GENRE,
     genre: selectedGenre
+  }),
+  changeAuthorizationStatus: (status) => ({
+    type: ActionType.CHANGE_AUTH_STATUS,
+    status
+  }),
+  redirectToRoute: (route) => ({
+    type: ActionType.REDIRECT_TO_ROUTE,
+    payload: route
   })
 };
