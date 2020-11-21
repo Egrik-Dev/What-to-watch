@@ -10,12 +10,11 @@ class MovieCard extends PureComponent {
   }
 
   render() {
-    const {film, clickFilmHandler} = this.props;
+    const {film} = this.props;
 
     return (
       <article
         className="small-movie-card catalog__movies-card"
-        onClick={() => clickFilmHandler ? clickFilmHandler(film.id) : ``}
       >
         <VideoPlayer
           film={film}
@@ -35,7 +34,6 @@ class MovieCard extends PureComponent {
 
 MovieCard.propTypes = {
   film: PropTypes.shape(filmProps).isRequired,
-  clickFilmHandler: PropTypes.func
 };
 
 export default MovieCard;

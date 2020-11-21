@@ -1,47 +1,46 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {filmProps} from '../../props/props';
-import {dateParse} from '../../utils';
-import axios from 'axios';
-import {BACKEND_URL} from '../../const';
+import {connect} from 'react-redux';
+import ItemReview from '../item-review/item-review';
+import {fetchComments} from '../../store/action-api';
 
 const ReviewsTab = (props) => {
-  const {film} = props;
-  const MOVIE_URL = `/comments/`;
+  const {film, fetchCommentsAction} = props;
 
   let [comments, setComments] = React.useState({});
   let [isFetchingComments, setFlag] = React.useState(true);
 
   React.useEffect(() => {
-    axios.get(BACKEND_URL + MOVIE_URL + film.id)
+    fetchCommentsAction(film.id)
       .then(({data}) => setComments(data))
       .then(() => setFlag(false));
-  }, []);
+  }, [film]);
 
   if (isFetchingComments) {
     return <div>Loading...</div>;
   }
 
+  const firstPartComments = comments.slice(0, Math.round(comments.length / 2));
+  const secondPartComments = comments.slice(Math.round(comments.length / 2), comments.length);
+
   return (
     <>
       <div className="movie-card__reviews movie-card__row">
         <div className="movie-card__reviews-col">
-          {comments.map((comment) => (
-            <div
-              className="review"
-              key={comment.id}
-            >
-              <blockquote className="review__quote">
-                <p className="review__text">{comment.comment}</p>
-
-                <footer className="review__details">
-                  <cite className="review__author">{comment.user.name}</cite>
-                  <time className="review__date" dateTime={comment.date.slice(0, 10)}>{dateParse(comment.date)}</time>
-                </footer>
-              </blockquote>
-
-              <div className="review__rating">{comment.rating}</div>
-            </div>
+          {firstPartComments.map((comment, index) => (
+            <ItemReview
+              comment={comment}
+              key={index}
+            />
+          ))}
+        </div>
+        <div className="movie-card__reviews-col">
+          {secondPartComments.map((comment, index) => (
+            <ItemReview
+              comment={comment}
+              key={index}
+            />
           ))}
         </div>
       </div>
@@ -51,6 +50,14 @@ const ReviewsTab = (props) => {
 
 ReviewsTab.propTypes = {
   film: PropTypes.shape(filmProps),
+  fetchCommentsAction: PropTypes.func.isRequired
 };
 
-export default ReviewsTab;
+const mapDispatchToProps = (dispatch) => ({
+  fetchCommentsAction(id) {
+    return dispatch(fetchComments(id));
+  }
+});
+
+export {ReviewsTab};
+export default connect(null, mapDispatchToProps)(ReviewsTab);

@@ -13,10 +13,10 @@ const LoginScreen = (props) => {
   const handleSubmitForm = React.useCallback((evt) => {
     evt.preventDefault();
 
-    const email = loginRef.current.value;
-    const password = passRef.current.value;
+    const userLogin = loginRef.current.value;
+    const userPass = passRef.current.value;
 
-    loginAction({email, password});
+    loginAction({userLogin, userPass});
   });
 
   return (
@@ -87,8 +87,8 @@ LoginScreen.propTypes = {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  loginAction({email, password}) {
-    dispatch(login({email, password}));
+  loginAction(authData) {
+    dispatch(login(authData));
   }
 });
 

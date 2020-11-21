@@ -4,7 +4,7 @@ import MovieCard from '../movie-card/movie-card';
 import ShowMore from '../show-more/show-more';
 
 const MoviesList = (props) => {
-  const {films, clickFilmHandler} = props;
+  const {films} = props;
 
   const [renderedFilms, setFilms] = React.useState([]);
 
@@ -24,7 +24,6 @@ const MoviesList = (props) => {
           <MovieCard
             key={i}
             film={film}
-            clickFilmHandler={clickFilmHandler}
           />)}
       </div>
       {films.length !== renderedFilms.length &&
@@ -38,7 +37,6 @@ const MoviesList = (props) => {
 
 MoviesList.propTypes = {
   films: PropTypes.array.isRequired,
-  clickFilmHandler: PropTypes.func
 };
 
 export default MoviesList;

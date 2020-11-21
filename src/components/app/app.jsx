@@ -8,14 +8,11 @@ import MyListScreen from '../my-list/my-list';
 import MovieScreen from '../movies/movies';
 import AddReviewScreen from '../add-review/add-review';
 import PlayerScreen from '../player/player';
-import withNewReview from '../../hocks/with-new-review/with-new-review';
 import {connect} from 'react-redux';
-import {fetchFilms, fetchPromoFilm, checkAuth} from '../../store/action-api';
+import {fetchFilms, checkAuth} from '../../store/action-api';
 import {ActionCreator} from '../../store/action';
 import PrivateRoute from '../private-route/private-route';
 import browserHistory from '../../browser-history';
-
-const NewReviewWrapped = withNewReview(AddReviewScreen);
 
 class App extends PureComponent {
   constructor(props) {
@@ -23,10 +20,9 @@ class App extends PureComponent {
   }
 
   componentDidMount() {
-    const {fetchFilmsAction, fetchPromoFilmAction, checkAuthAction, loadDone} = this.props;
+    const {fetchFilmsAction, checkAuthAction, loadDone} = this.props;
     Promise.all([
       fetchFilmsAction(),
-      fetchPromoFilmAction(),
       checkAuthAction()
     ])
     .then(() => loadDone());
@@ -68,7 +64,7 @@ class App extends PureComponent {
             path="/movies/:id/review"
             render={(props) => {
               return (
-                <NewReviewWrapped id={props.match.params.id} />
+                <AddReviewScreen id={props.match.params.id} />
               );
             }}
           />
@@ -93,9 +89,6 @@ const mapDispatchToProps = (dispatch) => ({
   fetchFilmsAction() {
     return dispatch(fetchFilms());
   },
-  fetchPromoFilmAction() {
-    return dispatch(fetchPromoFilm());
-  },
   checkAuthAction() {
     dispatch(checkAuth());
   },
@@ -108,7 +101,6 @@ App.propTypes = {
   films: filmsProps.films,
   isLoading: PropTypes.bool.isRequired,
   fetchFilmsAction: PropTypes.func.isRequired,
-  fetchPromoFilmAction: PropTypes.func.isRequired,
   loadDone: PropTypes.func.isRequired,
   checkAuthAction: PropTypes.func.isRequired
 };

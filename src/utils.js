@@ -5,7 +5,7 @@ export const extend = (a, b) => {
   return Object.assign({}, a, b);
 };
 
-export const camelize = (str) => {
+const camelize = (str) => {
   return str
     .split(`_`)
     .map(
@@ -36,4 +36,16 @@ export const filterFilms = (films, genre) => {
   }
 
   return films.filter((film) => film.genre === genre);
+};
+
+export const camelizeFilm = (film) => {
+  for (let key in film) {
+    if (key.includes(`_`)) {
+      const newKey = camelize(key);
+      film[newKey] = film[key];
+      delete film[key];
+    }
+  }
+
+  return film;
 };

@@ -6,7 +6,7 @@ import AddNewReview from '../add-new-review/add-new-review';
 import HeaderUserBlock from '../header-user-block/header-user-block';
 
 const AddReviewScreen = (props) => {
-  const {handleTextChange, handleRatingChange, films, id} = props;
+  const {films, id} = props;
   const activeFilmId = Number(id);
 
   const film = films.find((movie) => movie.id === activeFilmId);
@@ -50,8 +50,7 @@ const AddReviewScreen = (props) => {
 
       <div className="add-review">
         <AddNewReview
-          handleTextChange={handleTextChange}
-          handleRatingChange={handleRatingChange}
+          id={id}
         />
       </div>
 
@@ -65,8 +64,6 @@ const mapStateToProps = ({LOAD_DATA}) => ({
 
 AddReviewScreen.propTypes = {
   films: PropTypes.array.isRequired,
-  handleTextChange: PropTypes.func.isRequired,
-  handleRatingChange: PropTypes.func.isRequired,
   id: PropTypes.string.isRequired
 };
 
