@@ -29,7 +29,6 @@ export const fetchComments = (id) => (_dispatch, _getState, api) => (
 
 export const postReview = (id, {rating, comment}) => (dispatch, getState, api) => (
   api.post(`/comments/${id}`, {rating, comment})
-    .then(({data}) => dispatch(ActionCreator.loadComments(id, data)))
     .then(() => dispatch(ActionCreator.redirectToRoute(`/movies/${id}`)))
 );
 
