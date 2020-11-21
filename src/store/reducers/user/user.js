@@ -3,7 +3,7 @@ import {extend} from '../../../utils';
 
 const initialState = {
   authorizationStatus: `NO_AUTH`,
-  avatar: null
+  avatar: ``
 };
 
 export const user = (state = initialState, action) => {
