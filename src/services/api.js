@@ -14,7 +14,7 @@ export const createApi = (onUnauthorized) => {
     withCredentials: true
   });
 
-  const onSucess = (response) => response;
+  const onSuccess = (response) => response;
 
   const onFail = (err) => {
     const {response} = err;
@@ -28,7 +28,7 @@ export const createApi = (onUnauthorized) => {
     throw err;
   };
 
-  api.interceptors.response.use(onSucess, onFail);
+  api.interceptors.response.use(onSuccess, onFail);
 
   return api;
 };

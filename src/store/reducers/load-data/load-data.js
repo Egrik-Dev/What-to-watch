@@ -4,7 +4,7 @@ import {extend} from '../../../utils';
 const initialState = {
   isLoading: true,
   promoFilm: null,
-  films: []
+  films: [],
 };
 
 export const loadData = (state = initialState, action) => {
@@ -17,6 +17,9 @@ export const loadData = (state = initialState, action) => {
 
     case ActionType.LOAD_DONE:
       return extend(state, {isLoading: action.payload});
+
+    case ActionType.UPDATE_FILMS:
+      state.films = state.films.map((film) => (film.id === action.payload.id) ? action.payload : film);
   }
 
   return state;

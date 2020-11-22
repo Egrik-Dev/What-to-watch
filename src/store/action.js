@@ -1,4 +1,4 @@
-import {camelize} from '../utils';
+import {camelizeFilm} from '../utils';
 
 export const ActionType = {
   CHANGE_GENRE: `CHANGE_GENRE`,
@@ -6,19 +6,9 @@ export const ActionType = {
   LOAD_PROMO_FILM: `LOAD_PROMO_FILM`,
   LOAD_DONE: `LOAD_DONE`,
   CHANGE_AUTH_STATUS: `CHANGE_AUTH_STATUS`,
-  REDIRECT_TO_ROUTE: `REDIRECT_TO_ROUTE`
-};
-
-const camelizeFilm = (film) => {
-  for (let key in film) {
-    if (key.includes(`_`)) {
-      const newKey = camelize(key);
-      film[newKey] = film[key];
-      delete film[key];
-    }
-  }
-
-  return film;
+  REDIRECT_TO_ROUTE: `REDIRECT_TO_ROUTE`,
+  UPDATE_FILMS: `UPDATE_FILMS`,
+  CHANGE_AVATAR: `CHANGE_AVATAR`
 };
 
 const editingFilmsData = (movies) => {
@@ -50,5 +40,13 @@ export const ActionCreator = {
   redirectToRoute: (route) => ({
     type: ActionType.REDIRECT_TO_ROUTE,
     payload: route
+  }),
+  updateFilms: (film) => ({
+    type: ActionType.UPDATE_FILMS,
+    payload: camelizeFilm(film)
+  }),
+  changeAvatar: (data) => ({
+    type: ActionType.CHANGE_AVATAR,
+    payload: data
   })
 };

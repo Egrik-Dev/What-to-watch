@@ -4,15 +4,17 @@ import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 const HeaderUserBlock = (props) => {
-  const {authorizationStatus} = props;
+  const {authorizationStatus, avatar} = props;
 
   return (
     <div className="user-block">
       {authorizationStatus === `AUTH`
         &&
-        <div className="user-block__avatar">
-          <img src="/img/avatar.jpg" alt="User avatar" width="63" height="63" />
-        </div>
+        <Link to={`/mylist`}>
+          <div className="user-block__avatar">
+            <img src={avatar} alt="User avatar" width="63" height="63" />
+          </div>
+        </Link>
         ||
         <Link to={`/login`} className="user-block__link">Sign in</Link>
       }
@@ -21,11 +23,13 @@ const HeaderUserBlock = (props) => {
 };
 
 const mapStateToProps = ({USER}) => ({
-  authorizationStatus: USER.authorizationStatus
+  authorizationStatus: USER.authorizationStatus,
+  avatar: USER.avatar
 });
 
 HeaderUserBlock.propTypes = {
-  authorizationStatus: PropTypes.bool.isRequired,
+  authorizationStatus: PropTypes.string.isRequired,
+  avatar: PropTypes.string.isRequired
 };
 
 export {HeaderUserBlock};

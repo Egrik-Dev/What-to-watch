@@ -3,9 +3,12 @@ import {filmsProps} from '../../props/props';
 import MoviesList from '../movies-list/movies-list';
 import {Link} from 'react-router-dom';
 import HeaderUserBlock from '../header-user-block/header-user-block';
+import {connect} from 'react-redux';
 
 const MyListScreen = (props) => {
   const {films} = props;
+  const favoriteFilms = films.filter((film) => film.isFavorite);
+
   return (
     <div className="user-page">
       <header className="page-header user-page__head">
@@ -24,7 +27,7 @@ const MyListScreen = (props) => {
 
       <section className="catalog">
         <h2 className="catalog__title visually-hidden">Catalog</h2>
-        <MoviesList films={films} />
+        <MoviesList films={favoriteFilms} />
       </section>
 
       <footer className="page-footer">
@@ -46,4 +49,9 @@ const MyListScreen = (props) => {
 
 MyListScreen.propTypes = filmsProps;
 
-export default MyListScreen;
+const mapStateToProps = ({LOAD_DATA}) => ({
+  films: LOAD_DATA.films
+});
+
+export {MyListScreen};
+export default connect(mapStateToProps)(MyListScreen);
