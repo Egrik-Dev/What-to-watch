@@ -10,9 +10,10 @@ import HeaderUserBlock from '../header-user-block/header-user-block';
 import {camelizeFilm} from '../../utils';
 import {connect} from 'react-redux';
 import {toggleFavoriteFilm, loadFilm} from '../../store/action-api';
+import {ActionCreator} from '../../store/action';
 
 const MovieScreen = (props) => {
-  const {films, id, authorizationStatus, toggleFavoriteFilmAction, loadFilmAction} = props;
+  const {films, id, authorizationStatus, toggleFavoriteFilmAction, loadFilmAction, redirectToRoute} = props;
 
   const [activeTab, setActiveTab] = React.useState(`Overview`);
 
@@ -46,9 +47,13 @@ const MovieScreen = (props) => {
   }, [film]);
 
   const onHandleClickFavorite = React.useCallback(() => {
-    setFavorite(!isFavorite);
-    const status = isFavorite ? 0 : 1;
-    toggleFavoriteFilmAction(film.id, status);
+    if (authorizationStatus === `AUTH`) {
+      setFavorite(!isFavorite);
+      const status = isFavorite ? 0 : 1;
+      toggleFavoriteFilmAction(film.id, status);
+    } else {
+      redirectToRoute(`/login`);
+    }
   });
 
   if (isLoading) {
@@ -158,7 +163,8 @@ MovieScreen.propTypes = {
   id: PropTypes.string.isRequired,
   authorizationStatus: PropTypes.string.isRequired,
   toggleFavoriteFilmAction: PropTypes.func.isRequired,
-  loadFilmAction: PropTypes.func.isRequired
+  loadFilmAction: PropTypes.func.isRequired,
+  redirectToRoute: PropTypes.func.isRequired
 };
 
 const mapStateToProps = ({USER}) => ({
@@ -171,6 +177,9 @@ const mapDispatchToProps = (dispatch) => ({
   },
   loadFilmAction(id) {
     return dispatch(loadFilm(id));
+  },
+  redirectToRoute(path) {
+    dispatch(ActionCreator.redirectToRoute(path));
   }
 });
 

@@ -12,7 +12,7 @@ import {toggleFavoriteFilm, fetchPromoFilm} from '../../store/action-api';
 import {camelizeFilm} from '../../utils';
 
 const MainScreen = (props) => {
-  const {activeGenre, films, onFilterChange, toggleFavoriteFilmAction, fetchPromoFilmAction} = props;
+  const {activeGenre, films, onFilterChange, toggleFavoriteFilmAction, fetchPromoFilmAction, authorizationStatus, redirectToRoute} = props;
 
   const [promoFilm, setPromoFilmData] = React.useState({});
   const [isLoading, setLoadingStatus] = React.useState(true);
@@ -29,9 +29,13 @@ const MainScreen = (props) => {
   }, []);
 
   const onHandleClickFavorite = React.useCallback(() => {
-    setFavorite(!isFavorite);
-    const status = isFavorite ? 0 : 1;
-    toggleFavoriteFilmAction(promoFilm.id, status);
+    if (authorizationStatus === `AUTH`) {
+      setFavorite(!isFavorite);
+      const status = isFavorite ? 0 : 1;
+      toggleFavoriteFilmAction(promoFilm.id, status);
+    } else {
+      redirectToRoute(`/login`);
+    }
   });
 
   if (isLoading) {
@@ -130,10 +134,10 @@ const MainScreen = (props) => {
   );
 };
 
-const mapStateToProps = ({LOAD_DATA, APP_STATE}) => ({
-  // promoFilm: LOAD_DATA.promoFilm,
+const mapStateToProps = ({LOAD_DATA, APP_STATE, USER}) => ({
   activeGenre: APP_STATE.activeGenre,
   films: getGenreFilms({LOAD_DATA, APP_STATE}),
+  authorizationStatus: USER.authorizationStatus
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -146,6 +150,9 @@ const mapDispatchToProps = (dispatch) => ({
   toggleFavoriteFilmAction(id, status) {
     dispatch(toggleFavoriteFilm(id, status));
   },
+  redirectToRoute(path) {
+    dispatch(ActionCreator.redirectToRoute(path));
+  }
 });
 
 MainScreen.propTypes = {
@@ -154,7 +161,9 @@ MainScreen.propTypes = {
   onFilterChange: PropTypes.func.isRequired,
   promoFilm: PropTypes.shape(filmProps),
   toggleFavoriteFilmAction: PropTypes.func.isRequired,
-  fetchPromoFilmAction: PropTypes.func.isRequired
+  fetchPromoFilmAction: PropTypes.func.isRequired,
+  authorizationStatus: PropTypes.string.isRequired,
+  redirectToRoute: PropTypes.func.isRequired
 };
 
 export {MainScreen};

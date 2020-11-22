@@ -19,7 +19,10 @@ export const checkAuth = () => (dispatch, _getState, api) => (
 
 export const login = ({userLogin: email, userPass: password}) => (dispatch, _getState, api) => (
   api.post(`/login`, {email, password})
-    .then(() => dispatch(ActionCreator.changeAuthorizationStatus(`AUTH`)))
+    .then(({data}) => {
+      dispatch(ActionCreator.changeAvatar(data.avatar_url));
+      dispatch(ActionCreator.changeAuthorizationStatus(`AUTH`));
+    })
     .then(() => dispatch(ActionCreator.redirectToRoute(`/`)))
 );
 

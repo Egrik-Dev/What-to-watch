@@ -31,10 +31,10 @@ const AddNewReview = (props) => {
 
     setPostingStatus(true);
     postReviewAction(id, {rating, comment})
-    .catch(() => {
-      setPostingStatus(false);
-      setError(true);
-    });
+      .catch(() => {
+        setPostingStatus(false);
+        setError(true);
+      });
   });
 
   return (

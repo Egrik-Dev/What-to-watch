@@ -1,11 +1,11 @@
 import React, {createRef} from 'react';
-import {Link} from 'react-router-dom';
+import {Link, Redirect} from 'react-router-dom';
 import {connect} from 'react-redux';
-import {login} from '../../store/action-api';
+import {login, fetchFilms} from '../../store/action-api';
 import PropTypes from 'prop-types';
 
 const LoginScreen = (props) => {
-  const {loginAction} = props;
+  const {loginAction, fetchFilmsAction, authorizationStatus} = props;
 
   const loginRef = createRef();
   const passRef = createRef();
@@ -16,8 +16,13 @@ const LoginScreen = (props) => {
     const userLogin = loginRef.current.value;
     const userPass = passRef.current.value;
 
-    loginAction({userLogin, userPass});
+    loginAction({userLogin, userPass})
+      .then(() => fetchFilmsAction());
   });
+
+  if (authorizationStatus === `AUTH`) {
+    return <Redirect to={`/`} />;
+  }
 
   return (
     <div className="user-page">
@@ -83,14 +88,23 @@ const LoginScreen = (props) => {
 };
 
 LoginScreen.propTypes = {
-  loginAction: PropTypes.func.isRequired
+  loginAction: PropTypes.func.isRequired,
+  fetchFilmsAction: PropTypes.func.isRequired,
+  authorizationStatus: PropTypes.string.isRequired
 };
+
+const mapStateToProps = ({USER}) => ({
+  authorizationStatus: USER.authorizationStatus
+});
 
 const mapDispatchToProps = (dispatch) => ({
   loginAction(authData) {
-    dispatch(login(authData));
+    return dispatch(login(authData));
+  },
+  fetchFilmsAction() {
+    dispatch(fetchFilms());
   }
 });
 
 export {LoginScreen};
-export default connect(null, mapDispatchToProps)(LoginScreen);
+export default connect(mapStateToProps, mapDispatchToProps)(LoginScreen);
