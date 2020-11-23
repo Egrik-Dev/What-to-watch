@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should GenreItem render correctly if it is an active genre 1`] = `
+<li
+  className="catalog__genres-item catalog__genres-item--active"
+>
+  <a
+    className="catalog__genres-link"
+    href="#"
+    onClick={[Function]}
+  >
+    All genres
+  </a>
+</li>
+`;
+
+exports[`Should GenreItem render correctly if it is not an active genre 1`] = `
+<li
+  className="catalog__genres-item "
+>
+  <a
+    className="catalog__genres-link"
+    href="#"
+    onClick={[Function]}
+  >
+    All genres
+  </a>
+</li>
+`;
