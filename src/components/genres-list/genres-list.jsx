@@ -11,7 +11,7 @@ const GenresList = (props) => {
       {arrGenres.map((genre, i) => (
         <GenreItem
           key={i}
-          isActiveGenre={activeGenre === genre[1]}
+          isActiveGenre={activeGenre === genre[0]}
           onFilterChange={onFilterChange}
           genre={genre}
         />

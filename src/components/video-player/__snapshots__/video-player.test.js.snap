@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should VideoPlayer render correctly 1`] = `
+<a
+  href="/movies/1"
+  onClick={[Function]}
+>
+  <video
+    height={159}
+    muted={true}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    poster="https://assets.htmlacademy.ru/intensives/javascript-3/film/preview/bronson.jpg"
+    width={255}
+  />
+</a>
+`;
