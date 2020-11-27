@@ -9,7 +9,7 @@ import MovieScreen from '../movies/movies';
 import AddReviewScreen from '../add-review/add-review';
 import PlayerScreen from '../player/player';
 import {connect} from 'react-redux';
-import {fetchFilms, checkAuth} from '../../store/action-api';
+import {fetchFilms, checkAuth, fetchPromoFilm} from '../../store/action-api';
 import {ActionCreator} from '../../store/action';
 import PrivateRoute from '../private-route/private-route';
 import browserHistory from '../../browser-history';
@@ -20,9 +20,10 @@ class App extends PureComponent {
   }
 
   componentDidMount() {
-    const {fetchFilmsAction, checkAuthAction, loadDone} = this.props;
+    const {fetchFilmsAction, checkAuthAction, loadDone, fetchPromoFilmAction} = this.props;
     Promise.all([
       fetchFilmsAction(),
+      fetchPromoFilmAction(),
       checkAuthAction()
     ])
     .then(() => loadDone());
@@ -89,6 +90,9 @@ const mapDispatchToProps = (dispatch) => ({
   fetchFilmsAction() {
     return dispatch(fetchFilms());
   },
+  fetchPromoFilmAction() {
+    return dispatch(fetchPromoFilm());
+  },
   checkAuthAction() {
     dispatch(checkAuth());
   },
@@ -102,7 +106,8 @@ App.propTypes = {
   isLoading: PropTypes.bool.isRequired,
   fetchFilmsAction: PropTypes.func.isRequired,
   loadDone: PropTypes.func.isRequired,
-  checkAuthAction: PropTypes.func.isRequired
+  checkAuthAction: PropTypes.func.isRequired,
+  fetchPromoFilmAction: PropTypes.func.isRequired
 };
 
 export {App};

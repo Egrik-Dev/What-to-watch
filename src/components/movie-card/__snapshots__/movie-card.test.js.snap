@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should MovieCard render correctly with Router 1`] = `
+<article
+  className="small-movie-card catalog__movies-card"
+>
+  <a
+    href="/movies/1"
+    onClick={[Function]}
+  >
+    <video
+      height={159}
+      muted={true}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      poster="https://assets.htmlacademy.ru/intensives/javascript-3/film/preview/bronson.jpg"
+      width={255}
+    />
+  </a>
+  <h3
+    className="small-movie-card__title"
+  >
+    <a
+      className="small-movie-card__link"
+      href="/movies/1"
+      onClick={[Function]}
+    >
+      Bronson
+    </a>
+  </h3>
+</article>
+`;

@@ -1,7 +1,8 @@
 import {ActionCreator} from './action';
 
-export const fetchPromoFilm = () => (_dispatch, _getState, api) => (
+export const fetchPromoFilm = () => (dispatch, _getState, api) => (
   api.get(`/films/promo`)
+    .then(({data}) => dispatch(ActionCreator.loadPromoFilm(data)))
 );
 
 export const fetchFilms = () => (dispatch, _getState, api) => (
@@ -17,7 +18,7 @@ export const checkAuth = () => (dispatch, _getState, api) => (
     })
 );
 
-export const login = ({userLogin: email, userPass: password}) => (dispatch, _getState, api) => (
+export const login = ({loginInput: email, passwordInput: password}) => (dispatch, _getState, api) => (
   api.post(`/login`, {email, password})
     .then(({data}) => {
       dispatch(ActionCreator.changeAvatar(data.avatar_url));
@@ -30,7 +31,7 @@ export const fetchComments = (id) => (_dispatch, _getState, api) => (
   api.get(`/comments/${id}`)
 );
 
-export const postReview = (id, {rating, comment}) => (dispatch, getState, api) => (
+export const postReview = (id, {rating, comment}) => (dispatch, _getState, api) => (
   api.post(`/comments/${id}`, {rating, comment})
     .then(() => dispatch(ActionCreator.redirectToRoute(`/movies/${id}`)))
 );

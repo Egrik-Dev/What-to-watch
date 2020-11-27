@@ -1,7 +1,7 @@
 import {combineReducers} from "redux";
-import {appState} from "./app-state/app-state";
-import {loadData} from "./load-data/load-data";
-import {user} from './user/user';
+import appState from "./app-state/app-state";
+import loadData from "./load-data/load-data";
+import user from './user/user';
 
 export const NameSpace = {
   LOAD_DATA: `LOAD_DATA`,

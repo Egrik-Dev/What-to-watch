@@ -1,23 +1,29 @@
-import React, {createRef} from 'react';
+import React from 'react';
 import {Link, Redirect} from 'react-router-dom';
 import {connect} from 'react-redux';
-import {login, fetchFilms} from '../../store/action-api';
+import {login, fetchFilms, fetchPromoFilm} from '../../store/action-api';
 import PropTypes from 'prop-types';
 
 const LoginScreen = (props) => {
-  const {loginAction, fetchFilmsAction, authorizationStatus} = props;
+  const {loginAction, fetchFilmsAction, authorizationStatus, fetchPromoFilmAction} = props;
 
-  const loginRef = createRef();
-  const passRef = createRef();
+  const [loginInput, setLogin] = React.useState(``);
+  const [passwordInput, setPassword] = React.useState(``);
+
+  const handleLoginChange = React.useCallback((evt) => {
+    setLogin(evt.currentTarget.value);
+  });
+
+  const handlePasswordChange = React.useCallback((evt) => {
+    setPassword(evt.currentTarget.value);
+  });
 
   const handleSubmitForm = React.useCallback((evt) => {
     evt.preventDefault();
 
-    const userLogin = loginRef.current.value;
-    const userPass = passRef.current.value;
-
-    loginAction({userLogin, userPass})
-      .then(() => fetchFilmsAction());
+    loginAction({loginInput, passwordInput})
+      .then(() => fetchFilmsAction())
+      .then(() => fetchPromoFilmAction());
   });
 
   if (authorizationStatus === `AUTH`) {
@@ -48,7 +54,7 @@ const LoginScreen = (props) => {
                 placeholder="Email address"
                 name="user-email"
                 id="user-email"
-                ref={loginRef}
+                onChange={handleLoginChange}
               />
               <label className="sign-in__label visually-hidden" htmlFor="user-email">Email address</label>
             </div>
@@ -59,7 +65,7 @@ const LoginScreen = (props) => {
                 placeholder="Password"
                 name="user-password"
                 id="user-password"
-                ref={passRef}
+                onChange={handlePasswordChange}
               />
               <label className="sign-in__label visually-hidden" htmlFor="user-password">Password</label>
             </div>
@@ -90,7 +96,8 @@ const LoginScreen = (props) => {
 LoginScreen.propTypes = {
   loginAction: PropTypes.func.isRequired,
   fetchFilmsAction: PropTypes.func.isRequired,
-  authorizationStatus: PropTypes.string.isRequired
+  authorizationStatus: PropTypes.string.isRequired,
+  fetchPromoFilmAction: PropTypes.func.isRequired
 };
 
 const mapStateToProps = ({USER}) => ({
@@ -103,6 +110,9 @@ const mapDispatchToProps = (dispatch) => ({
   },
   fetchFilmsAction() {
     dispatch(fetchFilms());
+  },
+  fetchPromoFilmAction() {
+    dispatch(fetchPromoFilm());
   }
 });
 

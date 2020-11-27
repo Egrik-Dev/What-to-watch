@@ -14,13 +14,13 @@ const AddNewReview = (props) => {
   const [isPosting, setPostingStatus] = React.useState(false);
   const [isError, setError] = React.useState(false);
 
-  let handleRatingChange = React.useCallback((evt) => {
+  const handleRatingChange = React.useCallback((evt) => {
     const value = Number(evt.target.value);
     setError(false);
     setRating(value);
   });
 
-  let handleTextChange = React.useCallback((evt) => {
+  const handleTextChange = React.useCallback((evt) => {
     const text = evt.target.value;
     setError(false);
     setComment(text);
@@ -31,10 +31,10 @@ const AddNewReview = (props) => {
 
     setPostingStatus(true);
     postReviewAction(id, {rating, comment})
-      .catch(() => {
-        setPostingStatus(false);
-        setError(true);
-      });
+    .catch(() => {
+      setPostingStatus(false);
+      setError(true);
+    });
   });
 
   return (

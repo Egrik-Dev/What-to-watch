@@ -5,11 +5,16 @@ const initialState = {
   activeGenre: `ALL_GENRES`
 };
 
-export const appState = (state = initialState, action) => {
+const appState = (state = initialState, action) => {
   switch (action.type) {
     case ActionType.CHANGE_GENRE:
       return extend(state, {activeGenre: action.genre});
+
+    default:
+      break;
   }
 
   return state;
 };
+
+export default appState;
