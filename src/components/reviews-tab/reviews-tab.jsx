@@ -6,7 +6,7 @@ import ItemReview from '../item-review/item-review';
 import {fetchComments} from '../../store/action-api';
 
 const ReviewsTab = (props) => {
-  const {commentsProp = {}, isLoadingProp, film, fetchCommentsAction} = props;
+  const {commentsProp = {}, isLoadingProp = true, film, fetchCommentsAction} = props;
 
   let [comments, setComments] = React.useState(commentsProp);
   let [isFetchingComments, setFlag] = React.useState(isLoadingProp);

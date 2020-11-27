@@ -16,7 +16,8 @@ const MainScreen = (props) => {
   const [isFavorite, setFavorite] = React.useState();
 
   React.useEffect(() => {
-    setFavorite(promoFilm.isFavorite);
+    const isFavoriteProp = films.find((movie) => movie.id === promoFilm.id).isFavorite;
+    setFavorite(isFavoriteProp);
   }, [promoFilm]);
 
   const onHandleClickFavorite = React.useCallback(() => {

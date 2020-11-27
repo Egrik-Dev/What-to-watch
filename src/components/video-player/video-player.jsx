@@ -26,7 +26,7 @@ const VideoPlayer = (props) => {
 
   React.useEffect(() => {
     const video = videoRef.current;
-    video.src = props.film.videoLink;
+    video.src = props.film.previewVideoLink;
 
     if (isPlaying) {
       video.play();
