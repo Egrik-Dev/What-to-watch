@@ -92,27 +92,4 @@ describe(`Async operation work correctly`, () => {
         });
       });
   });
-
-  // it(`Should make a correct API get response to /films`, () => {
-  //   const apiMock = new MockAdapter(api);
-  //   const dispatch = jest.fn();
-  //   const checkAuthAction = checkAuth();
-
-  //   apiMock
-  //   .onGet(`/login`)
-  //   .reply(200, [{fake: true}]);
-
-  //   return checkAuthAction(dispatch, () => {}, api)
-  //     .then(() => {
-  //       expect(dispatch).toHaveBeenCalledTimes(2);
-  //       expect(dispatch).toHaveBeenNthCalledWith(1, {
-  //         type: ActionType.CHANGE_AVATAR,
-  //         payload: void 0
-  //       });
-  //       expect(dispatch).toHaveBeenNthCalledWith(2, {
-  //         type: ActionType.CHANGE_AUTH_STATUS,
-  //         status: `AUTH`
-  //       });
-  //     });
-  // });
 });
