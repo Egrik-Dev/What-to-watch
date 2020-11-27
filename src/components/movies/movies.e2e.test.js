@@ -1,8 +1,10 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
-import {Provider} from "react-redux";
-import configureStore from "redux-mock-store";
-import {App} from './app';
+import Adapter from 'enzyme-adapter-react-16';
+import {configure, shallow} from 'enzyme';
+import {MovieScreen} from './movies';
+
+configure({adapter: new Adapter()});
+const handleClickFavorite = jest.fn();
 
 const films = [
   {
@@ -45,43 +47,20 @@ const films = [
   }
 ];
 
-const noop = () => {};
+it(`button "Favorites" should be clicked`, () => {
+  const wrapper = shallow(
+      <MovieScreen
+        films={films}
+        filmProp={films[0]}
+        id={`0`}
+        authorizationStatus={`AUTH`}
+        toggleFavoriteFilmAction={handleClickFavorite}
+        loadFilmAction={() => {}}
+        redirectToRoute={() => {}}
+        isLoadingProp={false}
+      />
+  );
 
-describe(`Render connected to store component`, () => {
-  let AppComponent = null;
-  const mockStore = configureStore([]);
-  let store = null;
-
-  beforeEach(() => {
-    store = mockStore({
-      USER: {
-        authorizationStatus: `AUTH`,
-        avatar: `https://assets.htmlacademy.ru/intensives/javascript-3/avatar/3.jpg`
-      },
-      APP_STATE: {
-        activeGenre: `ALL_GENRES`
-      },
-      LOAD_DATA: {
-        films,
-        promoFilm: films[0]
-      }
-    });
-
-    AppComponent = renderer.create(
-        <Provider store={store}>
-          <App
-            films={films}
-            fetchFilmsAction={noop}
-            fetchPromoFilmAction={noop}
-            checkAuthAction={noop}
-            loadDone={noop}
-            isLoading={false}
-          />
-        </Provider>
-    );
-  });
-
-  it(`Should App connected to store render correctly`, () => {
-    expect(AppComponent.toJSON()).toMatchSnapshot();
-  });
+  wrapper.find(`.btn--list`).simulate(`click`);
+  expect(handleClickFavorite).toHaveBeenCalledTimes(1);
 });

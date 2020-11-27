@@ -1,6 +1,10 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import {ReviewsTab} from './reviews-tab';
+import thunk from 'redux-thunk';
+import {createApi} from '../../services/api';
+import configureStore from "redux-mock-store";
+import {Provider} from "react-redux";
 
 const film = {
   name: `Bronson`,
@@ -22,14 +26,51 @@ const film = {
   starring: [`Tom Hardy`, `Kelly Adams`, `Luing Andrews`]
 };
 
-it(`Should ReviewsTab render correctly`, () => {
-  const tree = renderer
-    .create(
-        <ReviewsTab
-          film={film}
-          fetchCommentsAction={() => {}}
-        />
-    ).toJSON();
+const comments = [
+  {
+    id: 1,
+    user: {
+      id: 12,
+      name: `Isaak`
+    },
+    rating: 4.6,
+    comment: `Poised to be an instant classic`,
+    date: `2020-10-29T13:38:44.769Z`
+  },
+  {
+    id: 2,
+    user: {
+      id: 12,
+      name: `Ben`
+    },
+    rating: 7.6,
+    comment: `Something comment Something comment Something comment`,
+    date: `2020-11-22T10:33:02.936Z`
+  }
+];
 
-  expect(tree).toMatchSnapshot();
+const api = createApi({onError: () => {}});
+
+describe(`Render connected to store component`, () => {
+  const middlewares = [thunk.withExtraArgument(api)];
+  const createMockStore = configureStore(middlewares);
+  const mockStore = createMockStore();
+
+  it(`Should ReviewsTab render correctly`, () => {
+    const fetchComments = jest.fn(() => Promise.resolve());
+    const tree = renderer
+      .create(
+          <Provider store={mockStore}>
+            <ReviewsTab
+              film={film}
+              fetchCommentsAction={fetchComments}
+              isLoadingProp={false}
+              commentsProp={comments}
+            />
+          </Provider>
+      );
+
+    fetchComments();
+    expect(tree.toJSON()).toMatchSnapshot();
+  });
 });

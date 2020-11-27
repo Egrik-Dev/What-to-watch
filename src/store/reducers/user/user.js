@@ -6,7 +6,7 @@ const initialState = {
   avatar: ``
 };
 
-export const user = (state = initialState, action) => {
+const user = (state = initialState, action) => {
   switch (action.type) {
     case ActionType.CHANGE_AUTH_STATUS:
       return extend(state, {authorizationStatus: action.status});
@@ -20,3 +20,5 @@ export const user = (state = initialState, action) => {
 
   return state;
 };
+
+export default user;

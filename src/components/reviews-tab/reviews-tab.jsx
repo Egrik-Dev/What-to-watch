@@ -6,10 +6,10 @@ import ItemReview from '../item-review/item-review';
 import {fetchComments} from '../../store/action-api';
 
 const ReviewsTab = (props) => {
-  const {film, fetchCommentsAction} = props;
+  const {commentsProp = {}, isLoadingProp, film, fetchCommentsAction} = props;
 
-  let [comments, setComments] = React.useState({});
-  let [isFetchingComments, setFlag] = React.useState(true);
+  let [comments, setComments] = React.useState(commentsProp);
+  let [isFetchingComments, setFlag] = React.useState(isLoadingProp);
 
   React.useEffect(() => {
     fetchCommentsAction(film.id)
@@ -50,7 +50,9 @@ const ReviewsTab = (props) => {
 
 ReviewsTab.propTypes = {
   film: PropTypes.shape(filmProps),
-  fetchCommentsAction: PropTypes.func.isRequired
+  fetchCommentsAction: PropTypes.func.isRequired,
+  isLoadingProp: PropTypes.bool,
+  commentsProp: PropTypes.array
 };
 
 const mapDispatchToProps = (dispatch) => ({

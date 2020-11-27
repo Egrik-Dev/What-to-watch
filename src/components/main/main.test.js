@@ -1,6 +1,12 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import {MainScreen} from './main';
+import MainScreen from './main';
+import {Route, Router} from 'react-router-dom';
+import browserHistory from '../../browser-history';
+import {Provider} from "react-redux";
+import configureStore from "redux-mock-store";
+import {createApi} from '../../services/api';
+import thunk from 'redux-thunk';
 
 const films = [
   {
@@ -45,18 +51,47 @@ const films = [
 
 const noop = () => {};
 
-it(`Should MainScreen render correctly`, () => {
-  const tree = renderer
-    .create(<MainScreen
-      films={films}
-      activeGenre={`ALL_GENRES`}
-      onFilterChange={noop}
-      promoFilm={films[0]}
-      toggleFavoriteFilmAction={noop}
-      fetchPromoFilmAction={noop}
-      authorizationStatus={`NO_AUTH`}
-      redirectToRoute={noop}
-    />).toJSON();
+const api = createApi({onError: () => {}});
 
-  expect(tree).toMatchSnapshot();
+describe(`Render connected to store component`, () => {
+  let MainComponent = null;
+  const middlewares = [thunk.withExtraArgument(api)];
+  const mockStore = configureStore(middlewares);
+  let store = null;
+
+  beforeEach(() => {
+    store = mockStore({
+      USER: {
+        authorizationStatus: `AUTH`,
+        avatar: `https://assets.htmlacademy.ru/intensives/javascript-3/avatar/3.jpg`
+      },
+      APP_STATE: {
+        activeGenre: `ALL_GENRES`
+      },
+      LOAD_DATA: {
+        films,
+        promoFilm: films[0]
+      }
+    });
+
+    MainComponent = renderer.create(
+        <Provider store={store}>
+          <Router history={browserHistory}>
+            <Route>
+              <MainScreen
+                films={films}
+                onFilterChange={noop}
+                toggleFavoriteFilmAction={noop}
+                fetchPromoFilmAction={noop}
+                redirectToRoute={noop}
+              />
+            </Route>
+          </Router>
+        </Provider>
+    );
+  });
+
+  it(`Should MainScreen connected to store render correctly`, () => {
+    expect(MainComponent.toJSON()).toMatchSnapshot();
+  });
 });

@@ -13,7 +13,7 @@ import {toggleFavoriteFilm, loadFilm} from '../../store/action-api';
 import {ActionCreator} from '../../store/action';
 
 const MovieScreen = (props) => {
-  const {films, id, authorizationStatus, toggleFavoriteFilmAction, loadFilmAction, redirectToRoute} = props;
+  const {filmProp = {}, isLoadingProp = true, films, id, authorizationStatus, toggleFavoriteFilmAction, loadFilmAction, redirectToRoute} = props;
 
   const [activeTab, setActiveTab] = React.useState(`Overview`);
 
@@ -26,8 +26,8 @@ const MovieScreen = (props) => {
     }
   });
 
-  const [film, setFilmData] = React.useState({});
-  const [isLoading, setLoadingStatus] = React.useState(true);
+  const [film, setFilmData] = React.useState(filmProp);
+  const [isLoading, setLoadingStatus] = React.useState(isLoadingProp);
   const [isFavorite, setFavorite] = React.useState();
   const [relatedFilms, setRelatedFilms] = React.useState([]);
 
@@ -164,7 +164,9 @@ MovieScreen.propTypes = {
   authorizationStatus: PropTypes.string.isRequired,
   toggleFavoriteFilmAction: PropTypes.func.isRequired,
   loadFilmAction: PropTypes.func.isRequired,
-  redirectToRoute: PropTypes.func.isRequired
+  redirectToRoute: PropTypes.func.isRequired,
+  isLoadingProp: PropTypes.bool,
+  filmProp: PropTypes.object
 };
 
 const mapStateToProps = ({USER}) => ({

@@ -1,7 +1,7 @@
 import React from 'react';
-import {configure, shallow} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import VideoPlayer from './video-player';
+import {configure, shallow} from 'enzyme';
+import Tabs from './tabs';
 
 configure({adapter: new Adapter()});
 
@@ -25,22 +25,19 @@ const film = {
   starring: [`Tom Hardy`, `Kelly Adams`, `Luing Andrews`]
 };
 
-it(`Play and pause video by hover`, () => {
+it(`Clicking on the tab should call the handler function`, () => {
+  const clickTabHandler = jest.fn();
   const wrapper = shallow(
-      <VideoPlayer
+      <Tabs
         film={film}
+        activeTab={`Overview`}
+        clickTabHandler={clickTabHandler}
       />
   );
+  const tabs = wrapper.find(`.movie-nav__item`);
+  expect(tabs).toHaveLength(3);
 
-  const video = wrapper.find(`video`);
-  const setState = jest.fn();
-  const useStateSpy = jest.spyOn(React, `useState`);
-  useStateSpy.mockImplementation((init) => [init, setState]);
-
-  video.simulate(`mouseenter`);
-  setState(true);
-  expect(setState).toHaveBeenCalledWith(true);
-  video.simulate(`mouseleave`);
-  setState(false);
-  expect(setState).toHaveBeenCalledWith(false);
+  const secondTab = tabs.at(2);
+  secondTab.simulate(`click`);
+  expect(clickTabHandler).toHaveBeenCalledTimes(1);
 });

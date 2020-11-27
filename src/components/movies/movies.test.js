@@ -68,11 +68,13 @@ describe(`Render connected to store component`, () => {
             <Route>
               <MovieScreen
                 films={films}
+                filmProp={films[0]}
                 id={`0`}
                 authorizationStatus={`AUTH`}
                 toggleFavoriteFilmAction={noop}
                 loadFilmAction={noop}
                 redirectToRoute={noop}
+                isLoadingProp={false}
               />
             </Route>
           </Router>

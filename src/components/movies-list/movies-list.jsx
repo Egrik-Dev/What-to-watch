@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import MovieCard from '../movie-card/movie-card';
-import ShowMore from '../show-more/show-more';
 
 const MoviesList = (props) => {
   const {films} = props;
@@ -27,9 +26,15 @@ const MoviesList = (props) => {
           />)}
       </div>
       {films.length !== renderedFilms.length &&
-          <ShowMore
-            onClickShowMoreHandler={onClickShowMoreHandler}
-          />
+        <div className="catalog__more">
+          <button
+            className="catalog__button"
+            type="button"
+            onClick={onClickShowMoreHandler}
+          >
+            Show more
+          </button>
+        </div>
       }
     </>
   );
