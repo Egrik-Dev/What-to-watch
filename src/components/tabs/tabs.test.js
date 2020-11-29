@@ -28,7 +28,7 @@ it(`Should Tabs render correctly`, () => {
         <Tabs
           film={film}
           activeTab={`ALL_GENRES`}
-          clickTabHandler={() => {}}
+          handleTabClick={() => {}}
         />
     ).toJSON();
 

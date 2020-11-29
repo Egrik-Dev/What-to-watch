@@ -2,9 +2,11 @@ import React, {createRef} from 'react';
 import {Link} from 'react-router-dom';
 import {filmsProps} from '../../props/props';
 import PropTypes from 'prop-types';
+import {AppRoute} from '../../const';
 
 const PlayerScreen = (props) => {
   const {films, id} = props;
+  const UNIT_OF_TIME = 60;
 
   const activeFilmId = Number(id);
   const fullCardFilm = films.find((film) => film.id === activeFilmId);
@@ -16,18 +18,18 @@ const PlayerScreen = (props) => {
 
   const videoRef = createRef();
 
-  const onPlayButtonClick = React.useCallback(() => {
+  const handlePlayButtonClick = React.useCallback(() => {
     setIsPlaying(!isPlaying);
   });
 
   const getFormatedTime = (duration) => {
-    const minutes = Math.floor(duration / 60);
-    const seconds = Math.floor(duration % 60);
-    const hours = Math.floor(minutes / 60);
+    const minutes = Math.floor(duration / UNIT_OF_TIME);
+    const seconds = Math.floor(duration % UNIT_OF_TIME);
+    const hours = Math.floor(minutes / UNIT_OF_TIME);
     return (`${hours}:${minutes}:${seconds}`);
   };
 
-  const switchFullScreenMode = React.useCallback(() => {
+  const handleFullScreenClick = React.useCallback(() => {
     if (document.fullscreenElement) {
       document.exitFullscreen();
     } else {
@@ -73,7 +75,7 @@ const PlayerScreen = (props) => {
         preload={`auto`}
       />
 
-      <Link to={`/movies/${fullCardFilm.id}`}>
+      <Link to={`${AppRoute.MOVIE_PAGE}/${fullCardFilm.id}`}>
         <button type="button" className="player__exit">Exit</button>
       </Link>
 
@@ -87,7 +89,7 @@ const PlayerScreen = (props) => {
         </div>
 
         <div className="player__controls-row">
-          <button type="button" className="player__play" onClick={onPlayButtonClick}>
+          <button type="button" className="player__play" onClick={handlePlayButtonClick}>
             {isPlaying
             &&
             <>
@@ -107,7 +109,7 @@ const PlayerScreen = (props) => {
           </button>
           <div className="player__name">Transpotting</div>
 
-          <button type="button" className="player__full-screen" onClick={switchFullScreenMode}>
+          <button type="button" className="player__full-screen" onClick={handleFullScreenClick}>
             <svg viewBox="0 0 27 27" width="27" height="27">
               <use xlinkHref="#full-screen"></use>
             </svg>

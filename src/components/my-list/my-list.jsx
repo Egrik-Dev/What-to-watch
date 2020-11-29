@@ -4,6 +4,7 @@ import MoviesList from '../movies-list/movies-list';
 import {Link} from 'react-router-dom';
 import HeaderUserBlock from '../header-user-block/header-user-block';
 import {connect} from 'react-redux';
+import {AppRoute} from '../../const';
 
 const MyListScreen = (props) => {
   const {films} = props;
@@ -13,7 +14,7 @@ const MyListScreen = (props) => {
     <div className="user-page">
       <header className="page-header user-page__head">
         <div className="logo">
-          <Link to={`/`} className="logo__link">
+          <Link to={AppRoute.ROOT} className="logo__link">
             <span className="logo__letter logo__letter--1">W</span>
             <span className="logo__letter logo__letter--2">T</span>
             <span className="logo__letter logo__letter--3">W</span>
@@ -32,7 +33,7 @@ const MyListScreen = (props) => {
 
       <footer className="page-footer">
         <div className="logo">
-          <Link to={`/`} className="logo__link logo__link--light">
+          <Link to={AppRoute.ROOT} className="logo__link logo__link--light">
             <span className="logo__letter logo__letter--1">W</span>
             <span className="logo__letter logo__letter--2">T</span>
             <span className="logo__letter logo__letter--3">W</span>

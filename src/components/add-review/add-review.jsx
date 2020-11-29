@@ -4,8 +4,10 @@ import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 import AddNewReview from '../add-new-review/add-new-review';
 import HeaderUserBlock from '../header-user-block/header-user-block';
+import {AppRoute} from '../../const';
+import {filmsProps} from '../../props/props';
 
-const AddReviewScreen = (props) => {
+const AddReview = (props) => {
   const {films, id} = props;
   const activeFilmId = Number(id);
 
@@ -22,7 +24,7 @@ const AddReviewScreen = (props) => {
 
         <header className="page-header">
           <div className="logo">
-            <Link to={`/`} className="logo__link">
+            <Link to={AppRoute.ROOT} className="logo__link">
               <span className="logo__letter logo__letter--1">W</span>
               <span className="logo__letter logo__letter--2">T</span>
               <span className="logo__letter logo__letter--3">W</span>
@@ -32,7 +34,9 @@ const AddReviewScreen = (props) => {
           <nav className="breadcrumbs">
             <ul className="breadcrumbs__list">
               <li className="breadcrumbs__item">
-                <a href="movie-page.html" className="breadcrumbs__link">{film.name}</a>
+                <Link className="breadcrumbs__link" to={`${AppRoute.MOVIE_PAGE}/${id}`}>
+                  {film.name}
+                </Link>
               </li>
               <li className="breadcrumbs__item">
                 <a className="breadcrumbs__link">Add review</a>
@@ -58,14 +62,14 @@ const AddReviewScreen = (props) => {
   );
 };
 
+AddReview.propTypes = {
+  films: filmsProps.films,
+  id: PropTypes.string.isRequired
+};
+
 const mapStateToProps = ({LOAD_DATA}) => ({
   films: LOAD_DATA.films
 });
 
-AddReviewScreen.propTypes = {
-  films: PropTypes.array.isRequired,
-  id: PropTypes.string.isRequired
-};
-
-export {AddReviewScreen};
-export default connect(mapStateToProps)(AddReviewScreen);
+export {AddReview};
+export default connect(mapStateToProps)(AddReview);

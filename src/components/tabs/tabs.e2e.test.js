@@ -26,12 +26,12 @@ const film = {
 };
 
 it(`Clicking on the tab should call the handler function`, () => {
-  const clickTabHandler = jest.fn();
+  const handleTabClick = jest.fn();
   const wrapper = shallow(
       <Tabs
         film={film}
         activeTab={`Overview`}
-        clickTabHandler={clickTabHandler}
+        handleTabClick={handleTabClick}
       />
   );
   const tabs = wrapper.find(`.movie-nav__item`);
@@ -39,5 +39,5 @@ it(`Clicking on the tab should call the handler function`, () => {
 
   const secondTab = tabs.at(2);
   secondTab.simulate(`click`);
-  expect(clickTabHandler).toHaveBeenCalledTimes(1);
+  expect(handleTabClick).toHaveBeenCalledTimes(1);
 });

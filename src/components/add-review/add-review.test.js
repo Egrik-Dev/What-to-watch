@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import {AddReviewScreen} from './add-review';
+import {AddReview} from './add-review';
 import {Route, Router} from 'react-router-dom';
 import browserHistory from '../../browser-history';
 import {Provider} from "react-redux";
@@ -49,7 +49,7 @@ const films = [
 
 const mockStore = configureStore([]);
 let store = null;
-let AddReviewScreenComponent = null;
+let AddReviewComponent = null;
 
 beforeEach(() => {
   store = mockStore({
@@ -59,11 +59,11 @@ beforeEach(() => {
     }
   });
 
-  AddReviewScreenComponent = renderer.create(
+  AddReviewComponent = renderer.create(
       <Provider store={store}>
         <Router history={browserHistory}>
           <Route>
-            <AddReviewScreen
+            <AddReview
               films={films}
               id={`1`}
             />
@@ -73,6 +73,6 @@ beforeEach(() => {
   );
 });
 
-it(`Should AddReviewScreen connected to store render correctly`, () => {
-  expect(AddReviewScreenComponent.toJSON()).toMatchSnapshot();
+it(`Should AddReview connected to store render correctly`, () => {
+  expect(AddReviewComponent.toJSON()).toMatchSnapshot();
 });

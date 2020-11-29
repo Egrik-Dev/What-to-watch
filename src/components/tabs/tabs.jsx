@@ -8,7 +8,7 @@ import DetailsTab from '../details-tab/details-tab';
 import ReviewsTab from '../reviews-tab/reviews-tab';
 
 const Tabs = (props) => {
-  const {activeTab, film, clickTabHandler} = props;
+  const {activeTab, film, handleTabClick} = props;
 
   return (
     <div className="movie-card__desc">
@@ -18,7 +18,7 @@ const Tabs = (props) => {
             <li
               className={`movie-nav__item ${activeTab === tab[1] ? `movie-nav__item--active` : ``}`}
               key={i}
-              onClick={clickTabHandler}
+              onClick={handleTabClick}
             >
               <a href="#" className="movie-nav__link">{tab[1]}</a>
             </li>
@@ -50,7 +50,7 @@ const Tabs = (props) => {
 Tabs.propTypes = {
   film: PropTypes.shape(filmProps),
   activeTab: PropTypes.string.isRequired,
-  clickTabHandler: PropTypes.func.isRequired
+  handleTabClick: PropTypes.func.isRequired
 };
 
 export default Tabs;

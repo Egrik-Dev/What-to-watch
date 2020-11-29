@@ -9,8 +9,9 @@ import {createApi} from './services/api';
 import {composeWithDevTools} from 'redux-devtools-extension';
 import {ActionCreator} from './store/action';
 import {redirect} from './midllewares/redirect';
+import {AuthStatus} from './const';
 
-const api = createApi(() => store.dispatch(ActionCreator.changeAuthorizationStatus(`NO_AUTH`)));
+const api = createApi(() => store.dispatch(ActionCreator.changeAuthorizationStatus(AuthStatus.NO_AUTH)));
 
 const store = createStore(
     rootReducer,

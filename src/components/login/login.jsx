@@ -3,12 +3,15 @@ import {Link, Redirect} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {login, fetchFilms, fetchPromoFilm} from '../../store/action-api';
 import PropTypes from 'prop-types';
+import {ActionCreator} from '../../store/action';
+import {AppRoute, AuthStatus} from '../../const';
 
 const LoginScreen = (props) => {
-  const {loginAction, fetchFilmsAction, authorizationStatus, fetchPromoFilmAction} = props;
+  const {loginAction, fetchFilmsAction, authorizationStatus, fetchPromoFilmAction, redirectToRouteAction} = props;
 
   const [loginInput, setLogin] = React.useState(``);
   const [passwordInput, setPassword] = React.useState(``);
+  const [isLogining, setLogining] = React.useState(false);
 
   const handleLoginChange = React.useCallback((evt) => {
     setLogin(evt.currentTarget.value);
@@ -20,14 +23,19 @@ const LoginScreen = (props) => {
 
   const handleSubmitForm = React.useCallback((evt) => {
     evt.preventDefault();
-
+    setLogining(true);
     loginAction({loginInput, passwordInput})
-      .then(() => fetchFilmsAction())
-      .then(() => fetchPromoFilmAction());
+      .then(() => {
+        Promise.all([
+          fetchFilmsAction(),
+          fetchPromoFilmAction()
+        ])
+        .then(() => redirectToRouteAction(AppRoute.ROOT));
+      });
   });
 
-  if (authorizationStatus === `AUTH`) {
-    return <Redirect to={`/`} />;
+  if (authorizationStatus === AuthStatus.AUTH) {
+    return <Redirect to={AppRoute.ROOT} />;
   }
 
   return (
@@ -54,6 +62,7 @@ const LoginScreen = (props) => {
                 placeholder="Email address"
                 name="user-email"
                 id="user-email"
+                required={true}
                 onChange={handleLoginChange}
               />
               <label className="sign-in__label visually-hidden" htmlFor="user-email">Email address</label>
@@ -65,13 +74,14 @@ const LoginScreen = (props) => {
                 placeholder="Password"
                 name="user-password"
                 id="user-password"
+                required={true}
                 onChange={handlePasswordChange}
               />
               <label className="sign-in__label visually-hidden" htmlFor="user-password">Password</label>
             </div>
           </div>
           <div className="sign-in__submit">
-            <button className="sign-in__btn" type="submit">Sign in</button>
+            <button className="sign-in__btn" type="submit" disabled={isLogining}>Sign in</button>
           </div>
         </form>
       </div>
@@ -97,7 +107,8 @@ LoginScreen.propTypes = {
   loginAction: PropTypes.func.isRequired,
   fetchFilmsAction: PropTypes.func.isRequired,
   authorizationStatus: PropTypes.string.isRequired,
-  fetchPromoFilmAction: PropTypes.func.isRequired
+  fetchPromoFilmAction: PropTypes.func.isRequired,
+  redirectToRouteAction: PropTypes.func.isRequired
 };
 
 const mapStateToProps = ({USER}) => ({
@@ -109,10 +120,13 @@ const mapDispatchToProps = (dispatch) => ({
     return dispatch(login(authData));
   },
   fetchFilmsAction() {
-    dispatch(fetchFilms());
+    return dispatch(fetchFilms());
   },
   fetchPromoFilmAction() {
-    dispatch(fetchPromoFilm());
+    return dispatch(fetchPromoFilm());
+  },
+  redirectToRouteAction(path) {
+    dispatch(ActionCreator.redirectToRoute(path));
   }
 });
 

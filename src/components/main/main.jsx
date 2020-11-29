@@ -9,24 +9,35 @@ import {ActionCreator} from '../../store/action';
 import {getGenreFilms} from '../../selectors/genre-selector';
 import HeaderUserBlock from '../header-user-block/header-user-block';
 import {toggleFavoriteFilm, fetchPromoFilm} from '../../store/action-api';
+import {Genres, AppRoute, AuthStatus} from '../../const';
 
 const MainScreen = (props) => {
-  const {promoFilm, activeGenre, films, onFilterChange, toggleFavoriteFilmAction, authorizationStatus, redirectToRoute} = props;
+  const {promoFilm, activeGenre, films, allFilms, onFilterChange, toggleFavoriteFilmAction, authorizationStatus, redirectToRoute} = props;
 
   const [isFavorite, setFavorite] = React.useState();
 
   React.useEffect(() => {
-    const isFavoriteProp = films.find((movie) => movie.id === promoFilm.id).isFavorite;
+    const genres = new Set();
+
+    films.forEach((film) => genres.add(film.genre));
+    const genresArr = Array.from(genres);
+    genresArr.forEach((genre) => {
+      Genres[genre.toUpperCase()] = genre;
+    });
+  }, []);
+
+  React.useEffect(() => {
+    const isFavoriteProp = allFilms.find((movie) => movie.id === promoFilm.id).isFavorite;
     setFavorite(isFavoriteProp);
   }, [promoFilm]);
 
   const onHandleClickFavorite = React.useCallback(() => {
-    if (authorizationStatus === `AUTH`) {
+    if (authorizationStatus === AuthStatus.AUTH) {
       setFavorite(!isFavorite);
       const status = isFavorite ? 0 : 1;
       toggleFavoriteFilmAction(promoFilm.id, status);
     } else {
-      redirectToRoute(`/login`);
+      redirectToRoute(AppRoute.LOGIN);
     }
   });
 
@@ -67,7 +78,7 @@ const MainScreen = (props) => {
               </p>
 
               <div className="movie-card__buttons">
-                <Link to={`/player/${promoFilm.id}`} style={{marginRight: `14px`}}>
+                <Link to={`${AppRoute.PLAYER}/${promoFilm.id}`} style={{marginRight: `14px`}}>
                   <button className="btn btn--play movie-card__button" type="button">
                     <svg viewBox="0 0 19 19" width="19" height="19">
                       <use xlinkHref="#play-s"></use>
@@ -100,6 +111,7 @@ const MainScreen = (props) => {
           <GenresList
             activeGenre={activeGenre}
             onFilterChange={onFilterChange}
+            films={films}
           />
           <MoviesList films={films} />
         </section>
@@ -122,9 +134,21 @@ const MainScreen = (props) => {
   );
 };
 
+MainScreen.propTypes = {
+  films: filmsProps.films,
+  allFilms: filmsProps.films,
+  activeGenre: PropTypes.string.isRequired,
+  onFilterChange: PropTypes.func.isRequired,
+  promoFilm: PropTypes.shape(filmProps),
+  toggleFavoriteFilmAction: PropTypes.func.isRequired,
+  authorizationStatus: PropTypes.string.isRequired,
+  redirectToRoute: PropTypes.func.isRequired,
+};
+
 const mapStateToProps = ({LOAD_DATA, APP_STATE, USER}) => ({
   activeGenre: APP_STATE.activeGenre,
   films: getGenreFilms({LOAD_DATA, APP_STATE}),
+  allFilms: LOAD_DATA.films,
   authorizationStatus: USER.authorizationStatus,
   promoFilm: LOAD_DATA.promoFilm
 });
@@ -143,16 +167,6 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(ActionCreator.redirectToRoute(path));
   }
 });
-
-MainScreen.propTypes = {
-  films: filmsProps.films,
-  activeGenre: PropTypes.string.isRequired,
-  onFilterChange: PropTypes.func.isRequired,
-  promoFilm: PropTypes.shape(filmProps),
-  toggleFavoriteFilmAction: PropTypes.func.isRequired,
-  authorizationStatus: PropTypes.string.isRequired,
-  redirectToRoute: PropTypes.func.isRequired,
-};
 
 export {MainScreen};
 export default connect(mapStateToProps, mapDispatchToProps)(MainScreen);

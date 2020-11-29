@@ -16,6 +16,7 @@ it(`Should LoginScreen render correctly without authorization`, () => {
               fetchFilmsAction={noop}
               fetchPromoFilmAction={noop}
               authorizationStatus={`NO_AUTH`}
+              redirectToRouteAction={noop}
             />
           </Route>
         </Router>

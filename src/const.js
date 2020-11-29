@@ -1,22 +1,37 @@
 export const BACKEND_URL = `https://5.react.pages.academy/wtw`;
 
+export const DEFAULT_GENRE = `ALL_GENRES`;
+
 export const Genres = {
   ALL_GENRES: `All genres`,
-  COMEDIE: `Comedy`,
-  CRIME: `Crime`,
-  DOCUMENTARY: `Documentary`,
-  DRAMA: `Drama`,
-  HORROR: `Horror`,
-  KIDS_AND_FAMILY: `Kids & Family`,
-  ROMANCE: `Romance`,
-  SCI_FI: `Sci-Fi`,
-  THRILLER: `Thriller`
 };
 
 export const FilmTabs = {
   OVERVIEW: `Overview`,
   DETAILS: `Details`,
   REVIEWS: `Reviews`
+};
+
+export const AppRoute = {
+  ROOT: `/`,
+  MOVIE_PAGE: `/movies`,
+  LOGIN: `/login`,
+  MY_LIST: `/mylist`,
+  REVIEW: `/review`,
+  PLAYER: `/player`
+};
+
+export const ApiRoute = {
+  PROMO_FILM: `/films/promo`,
+  FILMS: `/films`,
+  LOGIN: `/login`,
+  COMMENTS: `/comments`,
+  FAVORITE: `/favorite`
+};
+
+export const AuthStatus = {
+  AUTH: `AUTH`,
+  NO_AUTH: `NO_AUTH`
 };
 
 export const Months = {
@@ -34,10 +49,11 @@ export const Months = {
   11: `December`
 };
 
-export const QUANTITY_RENDERED_FILMS = 8;
-export const MAX_RELATED_FILMS = 4;
+export const QuantityFilms = {
+  RENDERED: 8,
+  RELATED: 4
+};
 
-export const arrGenres = Object.entries(Genres);
 export const arrTabs = Object.entries(FilmTabs);
 
 export const MINUTES_PER_HOUR = 60;

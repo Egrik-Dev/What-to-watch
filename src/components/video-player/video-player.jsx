@@ -2,6 +2,7 @@ import React, {createRef} from 'react';
 import {Link} from 'react-router-dom';
 import {filmProps} from '../../props/props';
 import PropTypes from 'prop-types';
+import {AppRoute} from '../../const';
 
 const VideoPlayer = (props) => {
   const {film} = props;
@@ -13,13 +14,13 @@ const VideoPlayer = (props) => {
   let delayTimer = null;
   const DELAY_PLAY = 1000;
 
-  const onHoverVideo = React.useCallback(() => {
+  const handleVideoHover = React.useCallback(() => {
     delayTimer = setTimeout(() => {
       setIsPlaying(true);
     }, DELAY_PLAY);
   });
 
-  const onLeaveVideo = React.useCallback(() => {
+  const handleVideoLeave = React.useCallback(() => {
     clearTimeout(delayTimer);
     setIsPlaying(false);
   });
@@ -41,15 +42,15 @@ const VideoPlayer = (props) => {
   });
 
   return (
-    <Link to={`/movies/${film.id}`}>
+    <Link to={`${AppRoute.MOVIE_PAGE}/${film.id}`}>
       <video
         ref={videoRef}
         poster={previewImage}
         width={255}
         height={159}
         muted={true}
-        onMouseEnter={onHoverVideo}
-        onMouseLeave={onLeaveVideo}
+        onMouseEnter={handleVideoHover}
+        onMouseLeave={handleVideoLeave}
       />
     </Link>
   );

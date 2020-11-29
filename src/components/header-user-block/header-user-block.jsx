@@ -2,13 +2,14 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
+import {AppRoute, AuthStatus} from '../../const';
 
 const HeaderUserBlock = (props) => {
   const {authorizationStatus, avatar} = props;
 
   return (
     <div className="user-block">
-      {authorizationStatus === `AUTH`
+      {authorizationStatus === AuthStatus.AUTH
         &&
         <Link to={`/mylist`}>
           <div className="user-block__avatar">
@@ -16,21 +17,21 @@ const HeaderUserBlock = (props) => {
           </div>
         </Link>
         ||
-        <Link to={`/login`} className="user-block__link">Sign in</Link>
+        <Link to={AppRoute.LOGIN} className="user-block__link">Sign in</Link>
       }
     </div>
   );
+};
+
+HeaderUserBlock.propTypes = {
+  authorizationStatus: PropTypes.string.isRequired,
+  avatar: PropTypes.string.isRequired
 };
 
 const mapStateToProps = ({USER}) => ({
   authorizationStatus: USER.authorizationStatus,
   avatar: USER.avatar
 });
-
-HeaderUserBlock.propTypes = {
-  authorizationStatus: PropTypes.string.isRequired,
-  avatar: PropTypes.string.isRequired
-};
 
 export {HeaderUserBlock};
 export default connect(mapStateToProps)(HeaderUserBlock);

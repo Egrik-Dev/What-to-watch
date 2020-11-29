@@ -58,6 +58,7 @@ exports[`Should LoginScreen render correctly without authorization 1`] = `
             name="user-email"
             onChange={[Function]}
             placeholder="Email address"
+            required={true}
             type="email"
           />
           <label
@@ -76,6 +77,7 @@ exports[`Should LoginScreen render correctly without authorization 1`] = `
             name="user-password"
             onChange={[Function]}
             placeholder="Password"
+            required={true}
             type="password"
           />
           <label
@@ -91,6 +93,7 @@ exports[`Should LoginScreen render correctly without authorization 1`] = `
       >
         <button
           className="sign-in__btn"
+          disabled={false}
           type="submit"
         >
           Sign in

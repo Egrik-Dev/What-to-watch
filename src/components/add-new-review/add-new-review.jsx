@@ -7,6 +7,8 @@ const AddNewReview = (props) => {
   const {id, postReviewAction} = props;
 
   const MAX_RATING = 5;
+  const MAX_REVIEW_SYMBOLS = 400;
+  const MIN_REVIEW_SYMBOLS = 50;
   const ratingArr = new Array(MAX_RATING).fill(``);
 
   const [rating, setRating] = React.useState();
@@ -79,7 +81,7 @@ const AddNewReview = (props) => {
             type="submit"
             onClick={handlePostReview}
             disabled={
-              (isPosting || comment.length < 50 || comment.length > 400 || !rating)
+              (isPosting || comment.length < MIN_REVIEW_SYMBOLS || comment.length > MAX_REVIEW_SYMBOLS || !rating)
                 ? true
                 : false
             }

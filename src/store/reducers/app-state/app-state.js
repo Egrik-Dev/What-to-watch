@@ -1,8 +1,9 @@
 import {ActionType} from '../../action';
 import {extend} from '../../../utils';
+import {DEFAULT_GENRE} from '../../../const';
 
 const initialState = {
-  activeGenre: `ALL_GENRES`
+  activeGenre: DEFAULT_GENRE
 };
 
 const appState = (state = initialState, action) => {

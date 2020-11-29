@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {arrGenres} from '../../const';
+import {Genres} from '../../const';
 import GenreItem from '../genre-item/genre-item';
 
 const GenresList = (props) => {
   const {activeGenre, onFilterChange} = props;
+  const arrGenres = Object.entries(Genres);
 
   return (
     <ul className="catalog__genres-list">

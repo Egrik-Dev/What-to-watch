@@ -1,6 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import MovieCard from '../movie-card/movie-card';
+import {QuantityFilms} from '../../const';
+import {filmsProps} from '../../props/props';
 
 const MoviesList = (props) => {
   const {films} = props;
@@ -8,11 +9,11 @@ const MoviesList = (props) => {
   const [renderedFilms, setFilms] = React.useState([]);
 
   React.useEffect(() => {
-    setFilms(films.slice(0, 8));
+    setFilms(films.slice(0, QuantityFilms.RENDERED));
   }, [films]);
 
-  const onClickShowMoreHandler = React.useCallback(() => {
-    const moreRenderedFilms = films.slice(renderedFilms.length, (renderedFilms.length + 8));
+  const handleShowMoreClick = React.useCallback(() => {
+    const moreRenderedFilms = films.slice(renderedFilms.length, (renderedFilms.length + QuantityFilms.RENDERED));
     setFilms(renderedFilms.concat(moreRenderedFilms));
   });
 
@@ -30,7 +31,7 @@ const MoviesList = (props) => {
           <button
             className="catalog__button"
             type="button"
-            onClick={onClickShowMoreHandler}
+            onClick={handleShowMoreClick}
           >
             Show more
           </button>
@@ -40,8 +41,6 @@ const MoviesList = (props) => {
   );
 };
 
-MoviesList.propTypes = {
-  films: PropTypes.array.isRequired,
-};
+MoviesList.propTypes = filmsProps;
 
 export default MoviesList;

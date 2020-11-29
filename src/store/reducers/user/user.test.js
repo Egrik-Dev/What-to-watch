@@ -54,7 +54,7 @@ describe(`Async operation work correctly`, () => {
 
     return loginFunc(dispatch, () => {}, api)
       .then(() => {
-        expect(dispatch).toHaveBeenCalledTimes(3);
+        expect(dispatch).toHaveBeenCalledTimes(2);
         expect(dispatch).toHaveBeenNthCalledWith(1, {
           type: ActionType.CHANGE_AVATAR,
           payload: void 0
@@ -62,10 +62,6 @@ describe(`Async operation work correctly`, () => {
         expect(dispatch).toHaveBeenNthCalledWith(2, {
           type: ActionType.CHANGE_AUTH_STATUS,
           status: `AUTH`
-        });
-        expect(dispatch).toHaveBeenNthCalledWith(3, {
-          type: ActionType.REDIRECT_TO_ROUTE,
-          payload: `/`
         });
       });
   });

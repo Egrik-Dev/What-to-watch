@@ -1,8 +1,9 @@
 import {ActionType} from '../../action';
 import {extend} from '../../../utils';
+import {AuthStatus} from '../../../const';
 
 const initialState = {
-  authorizationStatus: `NO_AUTH`,
+  authorizationStatus: AuthStatus.NO_AUTH,
   avatar: ``
 };
 
