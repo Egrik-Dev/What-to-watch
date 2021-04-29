@@ -1,7 +1,7 @@
 import React from "react";
 import {filmsProps} from '../../props/props';
 import PropTypes from 'prop-types';
-import {Switch, Route, HashRouter} from 'react-router-dom';
+import {Switch, Route, Router} from 'react-router-dom';
 import MainScreen from '../main/main';
 import LoginScreen from '../login/login';
 import MyListScreen from '../my-list/my-list';
@@ -33,7 +33,7 @@ const App = (props) => {
   }
 
   return (
-    <HashRouter history={browserHistory}>
+    <Router basename="/What-to-watch" history={browserHistory}>
       <Switch>
         <Route exact path={AppRoute.ROOT}>
           <MainScreen />
@@ -72,7 +72,7 @@ const App = (props) => {
           />
         )} />
       </Switch>
-    </HashRouter>
+    </Router>
   );
 };
 
